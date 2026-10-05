@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidchassidim-cyber.github.io/Eilat-property-management-/sitemap.xml
