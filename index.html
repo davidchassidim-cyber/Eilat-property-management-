@@ -202,6 +202,62 @@
       line-height: 1.5;
     }
     .credit a { color: #6a6560; }
+
+    .complex { margin-top: 18px; }
+    .complex-title {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      background: #dfecea;
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .prop-list { display: grid; gap: 10px; }
+    @media (min-width: 700px) {
+      .prop-list { grid-template-columns: 1fr 1fr; }
+    }
+    .prop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: var(--sand);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .prop:hover {
+      border-color: #b9d0cb;
+      box-shadow: 0 4px 14px rgba(15,61,54,.08);
+    }
+    .prop-name { font-weight: 700; color: var(--ink); font-size: .98rem; }
+    .prop-meta { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+    .score {
+      flex-shrink: 0;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      min-width: 2.6rem;
+      text-align: center;
+      padding: 8px 8px;
+      border-radius: 10px;
+    }
+    .score small { display: block; font-size: .65rem; font-weight: 600; opacity: .9; }
+    .note-soft { font-size: .88rem; color: var(--muted); margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -227,18 +283,95 @@
     </section>
 
     <section>
-      <h2>מה אנחנו מציעים</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <div class="icon">נ</div>
-          <h3>ניהול דירות נופש באילת</h3>
-          <p>ניהול נכסי נופש לטווח קצר: פרסום בפלטפורמות, תמחור חכם לפי ביקוש, תקשורת עם אורחים, תיאום כניסות ויציאות, מעקב אחרי תפוסה, וטיפול שוטף כדי שהדירה תהיה מוכנה לאורח הבא.</p>
+      <h2>ניהול דירות נופש באילת</h2>
+      <p class="lead">ניהול נכסי נופש לטווח קצר — מהפרסום ועד שהאורח יוצא מרוצה, בלי שתצטרכו להיות זמינים כל היום.</p>
+      <p>אנחנו מטפלים בפרסום בפלטפורמות, תמחור לפי ביקוש ועונות, תקשורת עם אורחים, תיאום כניסות ויציאות, מעקב אחרי תפוסה, ותיאום ניקיון ותחזוקה שוטפת. המטרה פשוטה: תפוסה טובה יותר, פחות כאב ראש, והנכס מוכן לאורח הבא.</p>
+      <ul>
+        <li>פרסום ועדכון שוטף של המודעה</li>
+        <li>תמחור חכם לפי עונה, חגים וביקוש</li>
+        <li>מענה לאורחים לפני, בזמן ואחרי השהות</li>
+        <li>תיאום כניסות, יציאות וניקיון</li>
+        <li>דיווח ברור על הזמנות והכנסות</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>ניהול לטווח ארוך וחוזים שנתיים</h2>
+      <p class="lead">השכרה לטווח ארוך באילת — שוכר מתאים, חוזה מסודר, וגבייה שוטפת, בלי לרדוף אחרי אף אחד.</p>
+      <p>אנחנו מאתרים שוכרים, בודקים התאמה, מכינים חוזה שנתי, דואגים לגבייה חודשית, ומטפלים בתקלות ובקשות שוטפות. אתם נשארים מעודכנים, ואנחנו מנהלים את היום־יום.</p>
+      <ul>
+        <li>איתור וסינון שוכרים</li>
+        <li>חוזה שנתי מסודר ושקוף</li>
+        <li>גביית שכר דירה ומעקב תשלומים</li>
+        <li>מענה לתקלות ותחזוקה שוטפת</li>
+        <li>נקודת קשר אחת לאורך כל התקופה</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>דירות שאנחנו מנהלים עכשיו</h2>
+      <p>דוגמאות מתוך הניהול שלנו באילת — עם קישור לדף בבוקינג וציון האורחים.</p>
+
+      <div class="complex">
+        <h3 class="complex-title">מתחם סי סייד <span class="badge">ליד הים</span></h3>
+        <div class="prop-list">
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=11337509&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">Seaside Heaven</div>
+              <div class="prop-meta">112 ביקורות בבוקינג</div>
+            </div>
+            <div class="score">9.6<small>ציון</small></div>
+          </a>
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10503018&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">Beach Side Ceasar</div>
+              <div class="prop-meta">81 ביקורות בבוקינג</div>
+            </div>
+            <div class="score">9.3<small>ציון</small></div>
+          </a>
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10476206&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">Beach Side Luxury</div>
+              <div class="prop-meta">87 ביקורות בבוקינג</div>
+            </div>
+            <div class="score">9.3<small>ציון</small></div>
+          </a>
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10475970&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">Beach Side Kings</div>
+              <div class="prop-meta">73 ביקורות בבוקינג</div>
+            </div>
+            <div class="score">9.2<small>ציון</small></div>
+          </a>
         </div>
-        <div class="card">
-          <div class="icon">ש</div>
-          <h3>השכרה לטווח ארוך וחוזים שנתיים</h3>
-          <p>ניהול דירות להשכרה באילת לטווח ארוך: איתור שוכרים מתאימים, חוזים מסודרים, גבייה שוטפת, ומענה לתקלות — בלי שתצטרכו לרדוף אחרי אף אחד.</p>
+      </div>
+
+      <div class="complex">
+        <h3 class="complex-title">סלואו סטיי <span class="badge">שקט ומסודר</span></h3>
+        <div class="prop-list">
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17308282&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">SlowStay Sunset</div>
+              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
+            </div>
+            <div class="score">10<small>ציון</small></div>
+          </a>
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17295198&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">SlowStay Calm</div>
+              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
+            </div>
+            <div class="score">10<small>ציון</small></div>
+          </a>
+          <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17295005&amp;dest_type=hotel" target="_blank" rel="noopener">
+            <div>
+              <div class="prop-name">SlowStay Pure</div>
+              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
+            </div>
+            <div class="score">10<small>ציון</small></div>
+          </a>
         </div>
+        <p class="note-soft">הציונים לפי בוקינג (נכון ל־4.10.2026). אפשר להוסיף עוד דירות בהמשך.</p>
       </div>
     </section>
 
