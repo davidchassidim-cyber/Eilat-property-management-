@@ -42,7 +42,6 @@
       --accent: #0f3d36;
       --accent-2: #1a5c52;
       --sand: #f7f1e6;
-      --sea: #2a7a8c;
     }
     * { box-sizing: border-box; }
     body {
@@ -64,24 +63,13 @@
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        linear-gradient(115deg, rgba(8,28,25,.88) 0%, rgba(15,61,54,.72) 45%, rgba(20,50,70,.55) 100%),
+        linear-gradient(115deg, rgba(8,20,35,.82) 0%, rgba(10,30,45,.68) 50%, rgba(8,25,40,.55) 100%),
         url("images/eilat-hero.jpg") center/cover no-repeat;
     }
     .hero-inner {
       position: relative;
       z-index: 1;
-      padding: 36px 24px 32px;
-    }
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.35);
-      color: #ffffff;
-      font-size: .85rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin-bottom: 14px;
+      padding: 40px 24px 34px;
     }
     h1 {
       margin: 0 0 14px;
@@ -89,15 +77,14 @@
       line-height: 1.3;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 1px 2px rgba(0,0,0,.35);
+      text-shadow: 0 1px 2px rgba(0,0,0,.4);
     }
     .sub {
       margin: 0;
       max-width: 38rem;
       font-size: 1.08rem;
       color: #ffffff;
-      opacity: 1;
-      text-shadow: 0 1px 2px rgba(0,0,0,.3);
+      text-shadow: 0 1px 2px rgba(0,0,0,.35);
     }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
     .btn {
@@ -110,13 +97,11 @@
       font-size: .98rem;
     }
     .btn-primary { background: #ffffff; color: var(--accent); }
-    .btn-primary:hover { background: #f3f7f6; }
     .btn-ghost {
       background: rgba(255,255,255,.12);
       color: #ffffff;
       border-color: rgba(255,255,255,.55);
     }
-    .btn-ghost:hover { background: rgba(255,255,255,.2); }
     section {
       background: var(--card);
       border: 1px solid var(--line);
@@ -136,24 +121,87 @@
     p.lead { color: var(--ink); font-size: 1.05rem; margin: 0 0 8px; }
     ul { margin: 8px 0 0; padding-inline-start: 1.25rem; }
     li { margin: 6px 0; }
-    .grid { display: grid; gap: 14px; }
     @media (min-width: 700px) {
-      .grid-2 { grid-template-columns: 1fr 1fr; }
-      .hero-inner { padding: 48px 36px 40px; }
-      .hero { min-height: 380px; }
+      .hero-inner { padding: 52px 36px 44px; }
+      .hero { min-height: 400px; }
     }
-    .card {
+    .complex { margin-top: 18px; }
+    .complex-title {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      background: #dfecea;
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .prop-list { display: grid; gap: 10px; }
+    @media (min-width: 700px) {
+      .prop-list { grid-template-columns: 1fr 1fr; }
+    }
+    .prop {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       background: var(--sand);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px 16px;
-      height: 100%;
+      border-radius: 12px;
+      padding: 10px 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, box-shadow .15s;
     }
-    .card .icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: #dfecea; color: var(--accent-2);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; margin-bottom: 10px; font-size: .95rem;
+    .prop:hover {
+      border-color: #b9d0cb;
+      box-shadow: 0 4px 14px rgba(15,61,54,.08);
+    }
+    .prop-photo {
+      width: 64px; height: 64px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #ddd;
+    }
+    .prop-body { flex: 1; min-width: 0; }
+    .prop-name { font-weight: 700; color: var(--ink); font-size: .98rem; }
+    .score {
+      flex-shrink: 0;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      min-width: 2.6rem;
+      text-align: center;
+      padding: 8px 8px;
+      border-radius: 10px;
+    }
+    .score small { display: block; font-size: .65rem; font-weight: 600; opacity: .9; }
+    .catalog-cta {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: #eef6f4;
+      border: 1px solid #cfe3de;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .catalog-cta p { margin: 0 0 10px; color: var(--ink); }
+    .btn-catalog {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff !important;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 700;
     }
     .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
     .steps li {
@@ -183,7 +231,6 @@
       text-align: center;
     }
     .cta-banner h2, .cta-banner p { color: #fff; }
-    .cta-banner p { opacity: .95; }
     .cta-banner .btn-primary { margin-top: 8px; }
     footer {
       margin-top: 16px;
@@ -202,62 +249,6 @@
       line-height: 1.5;
     }
     .credit a { color: #6a6560; }
-
-    .complex { margin-top: 18px; }
-    .complex-title {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      display: inline-block;
-      background: #dfecea;
-      color: var(--accent-2);
-      font-size: .78rem;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 999px;
-    }
-    .prop-list { display: grid; gap: 10px; }
-    @media (min-width: 700px) {
-      .prop-list { grid-template-columns: 1fr 1fr; }
-    }
-    .prop {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      background: var(--sand);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px 14px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color .15s, box-shadow .15s;
-    }
-    .prop:hover {
-      border-color: #b9d0cb;
-      box-shadow: 0 4px 14px rgba(15,61,54,.08);
-    }
-    .prop-name { font-weight: 700; color: var(--ink); font-size: .98rem; }
-    .prop-meta { font-size: .82rem; color: var(--muted); margin-top: 2px; }
-    .score {
-      flex-shrink: 0;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 800;
-      font-size: .95rem;
-      min-width: 2.6rem;
-      text-align: center;
-      padding: 8px 8px;
-      border-radius: 10px;
-    }
-    .score small { display: block; font-size: .65rem; font-weight: 600; opacity: .9; }
-    .note-soft { font-size: .88rem; color: var(--muted); margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -265,7 +256,6 @@
     <header class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-inner">
-        <span class="eyebrow">אילת · מקומי · מסודר</span>
         <h1>ניהול נכסים באילת — דירות נופש וחוזים שנתיים</h1>
         <p class="sub">מהשכרת נופש ועד חוזה שנתי — אנחנו מנהלים את הנכס. ניהול מקצועי לדירות נופש ולנכסים עם חוזה שנתי באילת. שקט, מסודר, מקומי.</p>
         <div class="actions">
@@ -316,62 +306,52 @@
         <h3 class="complex-title">מתחם סי סייד <span class="badge">ליד הים</span></h3>
         <div class="prop-list">
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=11337509&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">Seaside Heaven</div>
-              <div class="prop-meta">112 ביקורות בבוקינג</div>
-            </div>
+            <img class="prop-photo" src="images/props/seaside-heaven.jpg" alt="Seaside Heaven" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">Seaside Heaven</div></div>
             <div class="score">9.6<small>ציון</small></div>
           </a>
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10503018&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">Beach Side Ceasar</div>
-              <div class="prop-meta">81 ביקורות בבוקינג</div>
-            </div>
+            <img class="prop-photo" src="images/props/beach-side-ceasar.jpg" alt="Beach Side Ceasar" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">Beach Side Ceasar</div></div>
             <div class="score">9.3<small>ציון</small></div>
           </a>
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10476206&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">Beach Side Luxury</div>
-              <div class="prop-meta">87 ביקורות בבוקינג</div>
-            </div>
+            <img class="prop-photo" src="images/props/beach-side-luxury.jpg" alt="Beach Side Luxury" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">Beach Side Luxury</div></div>
             <div class="score">9.3<small>ציון</small></div>
           </a>
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=10475970&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">Beach Side Kings</div>
-              <div class="prop-meta">73 ביקורות בבוקינג</div>
-            </div>
+            <img class="prop-photo" src="images/props/beach-side-kings.jpg" alt="Beach Side Kings" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">Beach Side Kings</div></div>
             <div class="score">9.2<small>ציון</small></div>
           </a>
         </div>
       </div>
 
       <div class="complex">
-        <h3 class="complex-title">סלואו סטיי <span class="badge">שקט ומסודר</span></h3>
+        <h3 class="complex-title">סלואו סטיי <span class="badge">שקט</span></h3>
         <div class="prop-list">
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17308282&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">SlowStay Sunset</div>
-              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
-            </div>
+            <img class="prop-photo" src="images/props/sunset.jpg" alt="SlowStay Sunset" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">SlowStay Sunset</div></div>
             <div class="score">10<small>ציון</small></div>
           </a>
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17295198&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">SlowStay Calm</div>
-              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
-            </div>
+            <img class="prop-photo" src="images/props/calm.jpg" alt="SlowStay Calm" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">SlowStay Calm</div></div>
             <div class="score">10<small>ציון</small></div>
           </a>
           <a class="prop" href="https://www.booking.com/searchresults.he.html?dest_id=17295005&amp;dest_type=hotel" target="_blank" rel="noopener">
-            <div>
-              <div class="prop-name">SlowStay Pure</div>
-              <div class="prop-meta">ציון גבוה · ביקורות בודדות</div>
-            </div>
+            <img class="prop-photo" src="images/props/pure.jpg" alt="SlowStay Pure" width="64" height="64" loading="lazy" />
+            <div class="prop-body"><div class="prop-name">SlowStay Pure</div></div>
             <div class="score">10<small>ציון</small></div>
           </a>
         </div>
-        <p class="note-soft">הציונים לפי בוקינג (נכון ל־4.10.2026). אפשר להוסיף עוד דירות בהמשך.</p>
+      </div>
+
+      <div class="catalog-cta">
+        <p>רוצים לראות את כל הדירות המנוהלות? הקטלוג המלא בוואטסאפ.</p>
+        <a class="btn-catalog" href="https://wa.me/c/972544293989" target="_blank" rel="noopener">פתחו את הקטלוג בוואטסאפ</a>
       </div>
     </section>
 
@@ -416,9 +396,10 @@
         <a class="inline" href="mailto:Davidchassidim@gmail.com">Davidchassidim@gmail.com</a>
       </p>
       <p class="credit">
-        תמונת הרקע: חוף האלמוגים, אילת —
-        <a href="https://commons.wikimedia.org/wiki/File:Eilat-coral-beach-reserve-b.JPG" target="_blank" rel="noopener">Mboesch</a>,
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+        תמונת הרקע: אילת בלילה —
+        <a href="https://commons.wikimedia.org/wiki/File:Eilat_at_night.jpg" target="_blank" rel="noopener">Yonatan Dodin</a>,
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+        (מותר לשימוש מסחרי עם קרדיט)
       </p>
     </footer>
   </div>
