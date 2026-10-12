@@ -61,8 +61,8 @@ section{padding:56px 0}h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 6px;colo
 .fdesc{margin:0;color:#556;font-size:.95rem}
 .fcta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--g);color:var(--n);font-weight:800;border-radius:12px;padding:13px 14px}
 .fcta:after{content:"";width:9px;height:9px;border-top:2.5px solid currentColor;border-inline-end:2.5px solid currentColor;transform:rotate(-45deg);flex:none}
-.openbar{display:none;padding:22px 0 0}
-.js.mode-complex .openbar{display:block}
+.openbar{display:none;padding:14px 0 4px}
+.js.mode-complex .openbar{display:block;position:sticky;top:var(--stick,198px);z-index:3;background:var(--s);padding-top:12px;padding-bottom:12px}
 .back{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--n);border:2px solid var(--n);border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;box-shadow:0 4px 16px rgba(11,31,58,.08)}
 .back:before{content:"";width:9px;height:9px;border-top:2.5px solid currentColor;border-inline-start:2.5px solid currentColor;transform:rotate(45deg);flex:none}
 .back:hover,.back:focus-visible{background:var(--n);color:#fff}
@@ -295,6 +295,14 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
     });
     shown.textContent=label(n);
   }
+  function chromeHeight(){
+    var header=document.querySelector('header.top');
+    var filters=document.querySelector('.filters');
+    return (header?header.offsetHeight:0)+(filters?filters.offsetHeight:0);
+  }
+  function syncChrome(){
+    document.documentElement.style.setProperty('--stick', chromeHeight()+'px');
+  }
   function scrollToEl(el){
     if(!el) return;
     var header=document.querySelector('header.top');
@@ -302,9 +310,8 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
     var headerH=header?header.offsetHeight:0;
     var filtersH=filters?filters.offsetHeight:0;
     var elTop=el.getBoundingClientRect().top+window.scrollY;
-    var filtersTop=filters?filters.getBoundingClientRect().top+window.scrollY:0;
     var offset=headerH;
-    if(filters&&el!==filters&&!filters.contains(el)&&elTop>=filtersTop-1) offset+=filtersH;
+    if(filters && (filters.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) offset+=filtersH;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({top:Math.max(0,elTop-offset-8),behavior:reduce?'auto':'smooth'});
   }
@@ -333,14 +340,16 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
     syncChips();
     applyFromHash(true);
   }
-  var histLock=false;
+  var histQueued=false;
   function onHistory(){
-    if(histLock) return;
-    histLock=true;
-    activeFilter='all';
-    syncChips();
-    applyFromHash(true);
-    setTimeout(function(){histLock=false;},80);
+    if(histQueued) return;
+    histQueued=true;
+    setTimeout(function(){
+      histQueued=false;
+      activeFilter='all';
+      syncChips();
+      applyFromHash(true);
+    },0);
   }
 
   try{
@@ -393,6 +402,8 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
     });
     window.addEventListener('popstate',onHistory);
     window.addEventListener('hashchange',onHistory);
+    window.addEventListener('resize',syncChrome);
+    syncChrome();
     var start=hashId();
     if(CX.indexOf(start)>=0) applyFromHash(true);
     else{
