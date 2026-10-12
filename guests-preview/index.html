@@ -2,6 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>נופש אילתי | דירות נופש עם בריכה ונוף לים</title>
 <meta name="description" content="מגוון דירות נופש באילת: ליד החוף, עם בריכה, למשפחות, לזוגות ולקבוצות. ציונים גבוהים ב-Booking והזמנה ישירה. נופש אילתי, 054-4293989.">
@@ -39,8 +40,41 @@ section{padding:56px 0}h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 6px;colo
 .chip.on{background:var(--g);color:var(--n);border-color:#7a5a12;box-shadow:0 0 0 3px var(--n);font-weight:800}
 .shown{margin:10px 0 0;font-weight:800;font-size:1.15rem;color:var(--n)}
 .cxnav{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:.92rem}.cxnav a{color:var(--n)}
+.cxnav a.on{font-weight:800;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
 .cx{padding:40px 0 10px}.cxd{margin:0 0 20px;color:#556}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:22px}
+.folders{display:none;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:28px 22px;padding:26px 0 8px}
+.js.mode-folders .folders{display:grid}
+.folder{position:relative;display:flex;flex-direction:column;height:100%;margin-top:14px;padding:0;border:1px solid #e4dccf;border-radius:20px;background:#fff;box-shadow:0 10px 28px rgba(11,31,58,.1);color:inherit;text-align:start;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.folder:before{content:"";position:absolute;z-index:1;top:-14px;inset-inline-start:20px;width:84px;height:15px;background:#fff;border:1px solid #e4dccf;border-bottom:0;border-radius:11px 11px 0 0}
+.folder:after{content:"";position:absolute;z-index:2;top:-9px;inset-inline-start:38px;width:32px;height:3px;border-radius:3px;background:var(--g)}
+.folder:hover{transform:translateY(-5px);border-color:#c9b48a;box-shadow:0 18px 40px rgba(11,31,58,.16)}
+.folder:focus-visible{outline:3px solid var(--n);outline-offset:3px}
+.folder:active{transform:translateY(-1px)}
+.fph{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:19px 19px 0 0;background:#d5dbe3}
+.fph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.folder:hover .fph img,.folder:focus-visible .fph img{transform:scale(1.045)}
+.fbody{display:flex;flex-direction:column;gap:6px;flex:1;padding:16px 18px 18px}
+.fkicker{font-size:.78rem;font-weight:700;letter-spacing:.04em;color:#8a7340}
+.fname{font-size:clamp(1.35rem,2vw,1.7rem);font-weight:800;line-height:1.25;color:var(--n)}
+.fcount{align-self:flex-start;background:#eef4fa;color:#234;border-radius:20px;padding:3px 11px;font-size:.85rem;font-weight:700}
+.fdesc{margin:0;color:#556;font-size:.95rem}
+.fcta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--g);color:var(--n);font-weight:800;border-radius:12px;padding:13px 14px}
+.fcta:after{content:"";width:9px;height:9px;border-top:2.5px solid currentColor;border-inline-end:2.5px solid currentColor;transform:rotate(-45deg);flex:none}
+.openbar{display:none;padding:22px 0 0}
+.js.mode-complex .openbar{display:block}
+.back{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--n);border:2px solid var(--n);border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;box-shadow:0 4px 16px rgba(11,31,58,.08)}
+.back:before{content:"";width:9px;height:9px;border-top:2.5px solid currentColor;border-inline-start:2.5px solid currentColor;transform:rotate(45deg);flex:none}
+.back:hover,.back:focus-visible{background:var(--n);color:#fff}
+.back:focus-visible{outline:3px solid var(--g);outline-offset:3px}
+.js .cx{display:none}
+.js.mode-filter .cx{display:block}
+.js.mode-filter .cx.empty{display:none}
+.js.mode-complex .cx.open{display:block;padding-top:16px;animation:cardin .35s ease}
+@media (prefers-reduced-motion:reduce){
+  .folder,.fph img,.js.mode-complex .cx.open{transition:none;animation:none}
+  .folder:hover{transform:none}
+}
 .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 24px rgba(11,31,58,.08);display:flex;flex-direction:column}
 .ph{position:relative;aspect-ratio:4/3;background:#ddd}.ph img{width:100%;height:100%;object-fit:cover;display:block}
 .badge{position:absolute;top:12px;right:12px;background:var(--n);color:#fff;border-radius:12px;padding:6px 10px;display:flex;gap:8px;align-items:center}
@@ -83,7 +117,7 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
 <p class="shown" id="shown" aria-live="polite">כל הדירות</p>
 <div class="cxnav"><a href="#seaside">סי סייד</a><a href="#royal">רויאל פארק</a><a href="#towers">מגדלי אילת</a><a href="#brown">בראון אילת 42</a><a href="#city">ברחבי העיר</a></div>
 </div></div>
-<div class="wrap"><section class="cx" id="seaside"><h2>מתחם סי סייד</h2><p class="cxd">צמוד לחוף, נוף לים ובריכה במתחם, במרכז העיר.</p><div class="grid"><article class="card" data-tags="families couples pool beach"><div class="ph"><img loading="lazy" src="img/11337509.jpg" alt="סי סייד הבן – דירת נופש באילת"><div class="badge"><b>9.6</b><span>112 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>סי סייד הבן</h3><p class="bk" dir="ltr">Seaside Heaven-City Center Amazing Pool and Sea view</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 67 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>מיקום <b>9.7</b></span><span>נוחות <b>9.6</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„מיטה נוחה, חדרים גדולים עם הרבה אור, נוף יפה לים, נקי מאוד ומטבח מאובזר היטב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sy-syyd-127.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool beach"><div class="ph"><img loading="lazy" src="img/10503018.jpg" alt="ביץ&#x27; סייד קיסר – דירת נופש באילת"><div class="badge"><b>9.3</b><span>81 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד קיסר</h3><p class="bk" dir="ltr">Beach Side- Ceasar Luxury Amazing Pool Eilat</p><p class="meta">סטודיו · עד 5 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>9.8</b></span><span>נוחות <b>9.7</b></span><span>מיקום <b>9.7</b></span></div><blockquote>„מיקום ונוף מושלמים! יגאל היה זמין ועזר מאוד. הדירה הייתה נקייה ויפה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/eilat-balcony-city-center.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="couples pool beach"><div class="ph"><img loading="lazy" src="img/10476206.jpg" alt="ביץ&#x27; סייד לאקשרי – דירת נופש באילת"><div class="badge"><b>9.3</b><span>87 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד לאקשרי</h3><p class="bk" dir="ltr">Beach side -Luxury sea View Amazing pool Eilat</p><p class="meta">סטודיו · עד 4 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מיקום <b>9.9</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„מיקום מעולה, לא הזזנו את הרכב בכלל!! נוף מושלם לים. החדר מקסים, תמורה למחיר מעולה. אין ספק שנחזור שוב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sea-side-130-luxury-sea-view-best-location-in-town.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="couples pool beach"><div class="ph"><img loading="lazy" src="img/10475970.jpg" alt="ביץ&#x27; סייד קינגס – דירת נופש באילת"><div class="badge"><b>9.2</b><span>73 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד קינגס</h3><p class="bk" dir="ltr">Beach Side-Kings Luxury Sea view Amazing Pool Eilat</p><p class="meta">סטודיו · עד 4 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מיקום <b>9.9</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„המיקום מושלם, הנוף לים ולהרים מהמרפסת מדהים. החדר נוח, נקי, שקט וגדול.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sea-side-luxury-best-location-in-town103-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="royal"><h2>מתחם רויאל פארק</h2><p class="cxd">דירות מרווחות סביב בריכה גדולה וגינה, קרוב לטיילת ולאייס מול.</p><div class="grid"><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/10521166.jpg" alt="גארדן אנד פול – דירת נופש באילת"><div class="badge"><b>9.1</b><span>50 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>גארדן אנד פול</h3><p class="bk" dir="ltr">Garden and Pool at Royal Park Eilat</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 85 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>מיקום <b>9.4</b></span><span>יחס המארחים <b>9.2</b></span><span>מתקנים <b>9.1</b></span></div><blockquote>„מאוד נהנינו, היה פשוט מושלם. דירה מאוד גדולה עם מרפסת גדולה, בריכה נקייה. קיבלנו דירה לפני הזמן.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/graden-and-pool-at-royal-park-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/10555182.jpg" alt="רויאל פארק אקספיריינס – דירת נופש באילת"><div class="badge"><b>8.9</b><span>45 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>רויאל פארק אקספיריינס</h3><p class="bk" dir="ltr">The Royal park experience Amazing Pool Eilat</p><p class="meta">2 חדרי שינה · עד 5 אורחים · 85 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>יחס המארחים <b>9.3</b></span><span>ניקיון <b>9</b></span><span>נוחות <b>9</b></span></div><blockquote>„נקי ונוח. קרוב למרינה ולטיילת.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/the-royal-park-experience-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/8661301.jpg" alt="פול סייד – דירת נופש באילת"><div class="badge"><b>8.8</b><span>93 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>פול סייד</h3><p class="bk" dir="ltr">Pool side luxury suite at Royal Park-New Listing</p><p class="meta">2 חדרי שינה · עד 8 אורחים · 90 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>נוחות <b>9</b></span><span>מיקום <b>9</b></span></div><blockquote>„תמורה מצוינת לעלות, יחידה מסודרת ונקייה. היינו עם שלושה ילדים, לא חסר כלום. בריכה מטר מהחדר וקרוב לקניון.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/pool-side-luxury-suite-at-royal-park-new-listing.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/7100931.jpg" alt="גרין גארדן – דירת נופש באילת"></div><div class="body"><h3>גרין גארדן</h3><p class="bk" dir="ltr">Green garden suite at Royal Park Eilat- Amazing Pool</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 60 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span></div><blockquote>„דירה מרווחת מאוד, מצוידת בכל מה שמשפחה צריכה. מגבות בשפע, מצעים נקיים, בריכה גדולה וקרוב מאוד לאייס מול.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/green-garden-suite-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="towers"><h2>מתחם מגדלי אילת</h2><p class="cxd">בניין חדש עם בריכה גדולה. אפשר להשתמש בבריכה גם לפני הכניסה לדירה.</p><div class="grid"><article class="card" data-tags="families couples pool groups"><div class="ph"><img loading="lazy" src="img/14159683.jpg" alt="לה בוניטה – דירת נופש באילת"><div class="badge"><b>9.2</b><span>30 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>לה בוניטה</h3><p class="bk" dir="ltr">La Bonita Eilat Amazing Pool</p><p class="meta">חדר שינה אחד · עד 9 אורחים · 45 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>נוף לים</li></ul><div class="subs"><span>נוחות <b>9.4</b></span><span>יחס המארחים <b>9.3</b></span><span>תמורה למחיר <b>9.1</b></span></div><blockquote>„דירה מקסימה, נקייה ומעוצבת יפה, נוף יפה ובניין מטופח. הקשר עם המארחים היה קל וטוב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/la-bonita.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/16599413.jpg" alt="רד סקיי – דירת נופש באילת"><div class="badge"><b>8.9</b><span>11 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>רד סקיי</h3><p class="bk" dir="ltr">Red Sky - Amazing Pool Eilat</p><p class="meta">2 חדרי שינה · עד 7 אורחים · 65 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><div class="subs"><span>תמורה למחיר <b>9.5</b></span><span>מתקנים <b>9.1</b></span><span>נוחות <b>9.1</b></span></div><blockquote>„דירה יפה מאוד, בניין חדש ויפה עם מכולת בקומה הראשונה, ומעל הכל בעלים מקסים שעוזר בכל דבר בלב רחב. מומלץ ביותר!!!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-sky-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/16607349.jpg" alt="רד דזרט – דירת נופש באילת"></div><div class="body"><h3>רד דזרט</h3><p class="bk" dir="ltr">Red Desert-Amazing Pool Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„היה מושלם! אנחנו קבוצה של 3 משפחות שמגיעות לאילת כל פעם בחג. דירות חדשות, מפנקות ממש, מאובזרות בכל טוב ונקיות מאוד. קיבלנו שירות אדיב וזמין מהמארחים. בטוח נחזור!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-diamond-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/16702696.jpg" alt="רד דיימונד – דירת נופש באילת"></div><div class="body"><h3>רד דיימונד</h3><p class="bk" dir="ltr">Red Diamond - Amazing Pool Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„רציתי לציין שהדירה חדשה. הבריכה מצוינת, ענקית ומבריקה. מקום שקט. ממליצה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-desert-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/15941312.jpg" alt="בוטיק פול ריטריט – דירת נופש באילת"></div><div class="body"><h3>בוטיק פול ריטריט</h3><p class="bk" dir="ltr">Boutique Pool Retreat Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 45 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„מקום נקי ומסודר, עם הרבה מקומות חניה. המארח היה נעים וזמין לכל שאלה. בטוח נחזור.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/dyrh-khmvdh-lrvkh-bylt.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="brown"><h2>בראון אילת 42</h2><p class="cxd">דירה עם מרפסת ענקית, גינה ובריכה במתחם.</p><div class="grid"><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/14623232.jpg" alt="לידו 42 – דירת נופש באילת"><div class="badge"><b>9.5</b><span>17 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>לידו 42</h3><p class="bk" dir="ltr">Eilat Lido42 Vacation-Amazing pool</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מתקנים <b>9.8</b></span><span>תמורה למחיר <b>9.8</b></span></div><blockquote>„אחלה דירה, יגאל היה מאוד שירותי ונעים. מרפסת ענקית.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/eilat42-lido-vacation-amazing-pool.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="city"><h2>ברחבי העיר</h2><p class="cxd">בתים, פנטהאוזים ודירות משפחתיות, חלקם עם בריכה פרטית.</p><div class="grid"><article class="card" data-tags="couples"><div class="ph"><img loading="lazy" src="img/17308282.jpg" alt="SlowStay סאנסט – דירת נופש באילת"><div class="badge"><b>10</b><span>3 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay סאנסט</h3><p class="bk" dir="ltr">SlowStay Eilat - Sunset</p><p class="meta">חדר שינה אחד · עד 4 אורחים · 40 מ"ר</p><ul class="ft"><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><blockquote>„הכל חדש ומשוכלל, מטבח שיש בו הכל. בישלנו בו כמעט כל השהות שלנו והיה ממש ממש כיף.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-sunset.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families"><div class="ph"><img loading="lazy" src="img/17295198.jpg" alt="SlowStay קאלם – דירת נופש באילת"><div class="badge"><b>10</b><span>2 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay קאלם</h3><p class="bk" dir="ltr">SlowStay Eilat - Calm</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 45 מ"ר</p><ul class="ft"><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><blockquote>„הדירה יפה, נקייה, חדשה, מפנקת. הבעלים דאגו להכל עד הפרטים הקטנים. אנחנו בטוח נחזור להתארח שם!!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-calm.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families"><div class="ph"><img loading="lazy" src="img/17295005.jpg" alt="SlowStay פיור – דירת נופש באילת"><div class="badge"><b>10</b><span>1 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay פיור</h3><p class="bk" dir="ltr">SlowStay Eilat - Pure</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 55 מ"ר</p><ul class="ft"><li>גינה</li><li>מרפסת</li></ul><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-pure.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/17183401.jpg" alt="סאנלייט פנטהאוז – דירת נופש באילת"><div class="badge"><b>10</b><span>1 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>סאנלייט פנטהאוז</h3><p class="bk" dir="ltr">Sunlight Penthouse&amp;Private Pool Eilat</p><p class="meta">4 חדרי שינה · עד 10 אורחים · 200 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>מרפסת</li><li>מנגל</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><a class="btn" href="https://www.booking.com/hotel/il/sunlight-penthouse-amp-private-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families groups"><div class="ph"><img loading="lazy" src="img/10568236.jpg" alt="מדבר וים – פנטהאוז – דירת נופש באילת"><div class="badge"><b>9</b><span>115 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>מדבר וים – פנטהאוז</h3><p class="bk" dir="ltr">Desert and Sea-penthouse Full Sea view</p><p class="meta">4 חדרי שינה · עד 8 אורחים · 130 מ"ר</p><ul class="ft"><li>ג'קוזי פרטי</li><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>יחס המארחים <b>9.2</b></span></div><blockquote>„חוויה נהדרת! המארח היה נחמד מאוד, סבלני ותמיד זמין לעזור.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/desert-and-sea-penthouse-full-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15242888.jpg" alt="פרפקט – חופשה משפחתית – דירת נופש באילת"><div class="badge"><b>8.6</b><span>28 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>פרפקט – חופשה משפחתית</h3><p class="bk" dir="ltr">Perfect Family Vacation-Private Pool Eilat</p><p class="meta">4 חדרי שינה · עד 10 אורחים · 130 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>9.2</b></span></div><blockquote>„המקום נקי, מסודר, מאובזר. הבעלים נחמדים מאוד, בריכה נחמדה מאוד, הכל עובד.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/perfect-family-vaction-privet-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families groups"><div class="ph"><img loading="lazy" src="img/7205184.jpg" alt="דקל – דירת נופש באילת"></div><div class="body"><h3>דקל</h3><p class="bk" dir="ltr">Dekel-City center and Sea view -new listing</p><p class="meta">4 חדרי שינה · עד 8 אורחים · 120 מ"ר</p><ul class="ft"><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„הדירה מרווחת ונוחה למשפחה, עם 4 חדרי שינה נפרדים, סלון גדול ומטבח מאובזר. יש חניה ברחוב ומכולת מתחת לדירה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/dekel-city-center-and-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15739810.jpg" alt="הבן – חופשה משפחתית – דירת נופש באילת"></div><div class="body"><h3>הבן – חופשה משפחתית</h3><p class="bk" dir="ltr">Heaven Family Vacation-Amazing Private Pool Sea view Eilat</p><p class="meta">3 חדרי שינה · עד 10 אורחים · 145 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><blockquote>„דירה מהממת, מרווחת מאוד ונקייה, מצוידת בכל מה שצריך ומעבר, שירות מקסים.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/heaven-family-vacation-amazing-pool-sea-view-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15419473.jpg" alt="אקסקלוסיב פנטהאוז – דירת נופש באילת"></div><div class="body"><h3>אקסקלוסיב פנטהאוז</h3><p class="bk" dir="ltr">Exclusive Premium Penthouse Amazing private Pool Eilat</p><p class="meta">5 חדרי שינה · עד 15 אורחים · 150 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>נוף לים</li><li>גינה</li><li>חניה חינם</li></ul><a class="btn" href="https://www.booking.com/hotel/il/pnthvz-tsl-hr-brykh-prtyt-ylt.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section></div>
+<div class="wrap" id="browse"><div class="folders" id="folders" aria-label="מתחמים"></div><div class="openbar" id="openbar"><a class="back" id="back-all" href="#apts">חזרה לכל המתחמים</a></div><section class="cx" id="seaside"><h2>מתחם סי סייד</h2><p class="cxd">צמוד לחוף, נוף לים ובריכה במתחם, במרכז העיר.</p><div class="grid"><article class="card" data-tags="families couples pool beach"><div class="ph"><img loading="lazy" src="img/11337509.jpg" alt="סי סייד הבן – דירת נופש באילת"><div class="badge"><b>9.6</b><span>112 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>סי סייד הבן</h3><p class="bk" dir="ltr">Seaside Heaven-City Center Amazing Pool and Sea view</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 67 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>מיקום <b>9.7</b></span><span>נוחות <b>9.6</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„מיטה נוחה, חדרים גדולים עם הרבה אור, נוף יפה לים, נקי מאוד ומטבח מאובזר היטב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sy-syyd-127.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool beach"><div class="ph"><img loading="lazy" src="img/10503018.jpg" alt="ביץ&#x27; סייד קיסר – דירת נופש באילת"><div class="badge"><b>9.3</b><span>81 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד קיסר</h3><p class="bk" dir="ltr">Beach Side- Ceasar Luxury Amazing Pool Eilat</p><p class="meta">סטודיו · עד 5 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>9.8</b></span><span>נוחות <b>9.7</b></span><span>מיקום <b>9.7</b></span></div><blockquote>„מיקום ונוף מושלמים! יגאל היה זמין ועזר מאוד. הדירה הייתה נקייה ויפה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/eilat-balcony-city-center.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="couples pool beach"><div class="ph"><img loading="lazy" src="img/10476206.jpg" alt="ביץ&#x27; סייד לאקשרי – דירת נופש באילת"><div class="badge"><b>9.3</b><span>87 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד לאקשרי</h3><p class="bk" dir="ltr">Beach side -Luxury sea View Amazing pool Eilat</p><p class="meta">סטודיו · עד 4 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מיקום <b>9.9</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„מיקום מעולה, לא הזזנו את הרכב בכלל!! נוף מושלם לים. החדר מקסים, תמורה למחיר מעולה. אין ספק שנחזור שוב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sea-side-130-luxury-sea-view-best-location-in-town.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="couples pool beach"><div class="ph"><img loading="lazy" src="img/10475970.jpg" alt="ביץ&#x27; סייד קינגס – דירת נופש באילת"><div class="badge"><b>9.2</b><span>73 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>ביץ&#x27; סייד קינגס</h3><p class="bk" dir="ltr">Beach Side-Kings Luxury Sea view Amazing Pool Eilat</p><p class="meta">סטודיו · עד 4 אורחים · 47 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>קרוב מאוד לחוף</li><li>נוף לים</li><li>גינה</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מיקום <b>9.9</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„המיקום מושלם, הנוף לים ולהרים מהמרפסת מדהים. החדר נוח, נקי, שקט וגדול.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/sea-side-luxury-best-location-in-town103-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="royal"><h2>מתחם רויאל פארק</h2><p class="cxd">דירות מרווחות סביב בריכה גדולה וגינה, קרוב לטיילת ולאייס מול.</p><div class="grid"><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/10521166.jpg" alt="גארדן אנד פול – דירת נופש באילת"><div class="badge"><b>9.1</b><span>50 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>גארדן אנד פול</h3><p class="bk" dir="ltr">Garden and Pool at Royal Park Eilat</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 85 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>מיקום <b>9.4</b></span><span>יחס המארחים <b>9.2</b></span><span>מתקנים <b>9.1</b></span></div><blockquote>„מאוד נהנינו, היה פשוט מושלם. דירה מאוד גדולה עם מרפסת גדולה, בריכה נקייה. קיבלנו דירה לפני הזמן.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/graden-and-pool-at-royal-park-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/10555182.jpg" alt="רויאל פארק אקספיריינס – דירת נופש באילת"><div class="badge"><b>8.9</b><span>45 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>רויאל פארק אקספיריינס</h3><p class="bk" dir="ltr">The Royal park experience Amazing Pool Eilat</p><p class="meta">2 חדרי שינה · עד 5 אורחים · 85 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>יחס המארחים <b>9.3</b></span><span>ניקיון <b>9</b></span><span>נוחות <b>9</b></span></div><blockquote>„נקי ונוח. קרוב למרינה ולטיילת.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/the-royal-park-experience-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/8661301.jpg" alt="פול סייד – דירת נופש באילת"><div class="badge"><b>8.8</b><span>93 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>פול סייד</h3><p class="bk" dir="ltr">Pool side luxury suite at Royal Park-New Listing</p><p class="meta">2 חדרי שינה · עד 8 אורחים · 90 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>נוחות <b>9</b></span><span>מיקום <b>9</b></span></div><blockquote>„תמורה מצוינת לעלות, יחידה מסודרת ונקייה. היינו עם שלושה ילדים, לא חסר כלום. בריכה מטר מהחדר וקרוב לקניון.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/pool-side-luxury-suite-at-royal-park-new-listing.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/7100931.jpg" alt="גרין גארדן – דירת נופש באילת"></div><div class="body"><h3>גרין גארדן</h3><p class="bk" dir="ltr">Green garden suite at Royal Park Eilat- Amazing Pool</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 60 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span></div><blockquote>„דירה מרווחת מאוד, מצוידת בכל מה שמשפחה צריכה. מגבות בשפע, מצעים נקיים, בריכה גדולה וקרוב מאוד לאייס מול.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/green-garden-suite-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="towers"><h2>מתחם מגדלי אילת</h2><p class="cxd">בניין חדש עם בריכה גדולה. אפשר להשתמש בבריכה גם לפני הכניסה לדירה.</p><div class="grid"><article class="card" data-tags="families couples pool groups"><div class="ph"><img loading="lazy" src="img/14159683.jpg" alt="לה בוניטה – דירת נופש באילת"><div class="badge"><b>9.2</b><span>30 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>לה בוניטה</h3><p class="bk" dir="ltr">La Bonita Eilat Amazing Pool</p><p class="meta">חדר שינה אחד · עד 9 אורחים · 45 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>נוף לים</li></ul><div class="subs"><span>נוחות <b>9.4</b></span><span>יחס המארחים <b>9.3</b></span><span>תמורה למחיר <b>9.1</b></span></div><blockquote>„דירה מקסימה, נקייה ומעוצבת יפה, נוף יפה ובניין מטופח. הקשר עם המארחים היה קל וטוב.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/la-bonita.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool"><div class="ph"><img loading="lazy" src="img/16599413.jpg" alt="רד סקיי – דירת נופש באילת"><div class="badge"><b>8.9</b><span>11 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>רד סקיי</h3><p class="bk" dir="ltr">Red Sky - Amazing Pool Eilat</p><p class="meta">2 חדרי שינה · עד 7 אורחים · 65 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><div class="subs"><span>תמורה למחיר <b>9.5</b></span><span>מתקנים <b>9.1</b></span><span>נוחות <b>9.1</b></span></div><blockquote>„דירה יפה מאוד, בניין חדש ויפה עם מכולת בקומה הראשונה, ומעל הכל בעלים מקסים שעוזר בכל דבר בלב רחב. מומלץ ביותר!!!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-sky-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/16607349.jpg" alt="רד דזרט – דירת נופש באילת"></div><div class="body"><h3>רד דזרט</h3><p class="bk" dir="ltr">Red Desert-Amazing Pool Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„היה מושלם! אנחנו קבוצה של 3 משפחות שמגיעות לאילת כל פעם בחג. דירות חדשות, מפנקות ממש, מאובזרות בכל טוב ונקיות מאוד. קיבלנו שירות אדיב וזמין מהמארחים. בטוח נחזור!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-diamond-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/16702696.jpg" alt="רד דיימונד – דירת נופש באילת"></div><div class="body"><h3>רד דיימונד</h3><p class="bk" dir="ltr">Red Diamond - Amazing Pool Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„רציתי לציין שהדירה חדשה. הבריכה מצוינת, ענקית ומבריקה. מקום שקט. ממליצה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/red-desert-amazing-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/15941312.jpg" alt="בוטיק פול ריטריט – דירת נופש באילת"></div><div class="body"><h3>בוטיק פול ריטריט</h3><p class="bk" dir="ltr">Boutique Pool Retreat Eilat</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 45 מ"ר</p><ul class="ft"><li>בריכה במתחם</li></ul><blockquote>„מקום נקי ומסודר, עם הרבה מקומות חניה. המארח היה נעים וזמין לכל שאלה. בטוח נחזור.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/dyrh-khmvdh-lrvkh-bylt.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="brown"><h2>בראון אילת 42</h2><p class="cxd">דירה עם מרפסת ענקית, גינה ובריכה במתחם.</p><div class="grid"><article class="card" data-tags="families couples pool"><div class="ph"><img loading="lazy" src="img/14623232.jpg" alt="לידו 42 – דירת נופש באילת"><div class="badge"><b>9.5</b><span>17 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>לידו 42</h3><p class="bk" dir="ltr">Eilat Lido42 Vacation-Amazing pool</p><p class="meta">חדר שינה אחד · עד 5 אורחים · 50 מ"ר</p><ul class="ft"><li>בריכה במתחם</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>מתקנים <b>9.8</b></span><span>תמורה למחיר <b>9.8</b></span></div><blockquote>„אחלה דירה, יגאל היה מאוד שירותי ונעים. מרפסת ענקית.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/eilat42-lido-vacation-amazing-pool.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section><section class="cx" id="city"><h2>ברחבי העיר</h2><p class="cxd">בתים, פנטהאוזים ודירות משפחתיות, חלקם עם בריכה פרטית.</p><div class="grid"><article class="card" data-tags="couples"><div class="ph"><img loading="lazy" src="img/17308282.jpg" alt="SlowStay סאנסט – דירת נופש באילת"><div class="badge"><b>10</b><span>3 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay סאנסט</h3><p class="bk" dir="ltr">SlowStay Eilat - Sunset</p><p class="meta">חדר שינה אחד · עד 4 אורחים · 40 מ"ר</p><ul class="ft"><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><blockquote>„הכל חדש ומשוכלל, מטבח שיש בו הכל. בישלנו בו כמעט כל השהות שלנו והיה ממש ממש כיף.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-sunset.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families"><div class="ph"><img loading="lazy" src="img/17295198.jpg" alt="SlowStay קאלם – דירת נופש באילת"><div class="badge"><b>10</b><span>2 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay קאלם</h3><p class="bk" dir="ltr">SlowStay Eilat - Calm</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 45 מ"ר</p><ul class="ft"><li>גינה</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><blockquote>„הדירה יפה, נקייה, חדשה, מפנקת. הבעלים דאגו להכל עד הפרטים הקטנים. אנחנו בטוח נחזור להתארח שם!!“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-calm.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families"><div class="ph"><img loading="lazy" src="img/17295005.jpg" alt="SlowStay פיור – דירת נופש באילת"><div class="badge"><b>10</b><span>1 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>SlowStay פיור</h3><p class="bk" dir="ltr">SlowStay Eilat - Pure</p><p class="meta">2 חדרי שינה · עד 6 אורחים · 55 מ"ר</p><ul class="ft"><li>גינה</li><li>מרפסת</li></ul><a class="btn" href="https://www.booking.com/hotel/il/slowstay-eilat-pure.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/17183401.jpg" alt="סאנלייט פנטהאוז – דירת נופש באילת"><div class="badge"><b>10</b><span>1 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>סאנלייט פנטהאוז</h3><p class="bk" dir="ltr">Sunlight Penthouse&amp;Private Pool Eilat</p><p class="meta">4 חדרי שינה · עד 10 אורחים · 200 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>מרפסת</li><li>מנגל</li></ul><div class="subs"><span>יחס המארחים <b>10</b></span><span>מתקנים <b>10</b></span><span>ניקיון <b>10</b></span></div><a class="btn" href="https://www.booking.com/hotel/il/sunlight-penthouse-amp-private-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families groups"><div class="ph"><img loading="lazy" src="img/10568236.jpg" alt="מדבר וים – פנטהאוז – דירת נופש באילת"><div class="badge"><b>9</b><span>115 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>מדבר וים – פנטהאוז</h3><p class="bk" dir="ltr">Desert and Sea-penthouse Full Sea view</p><p class="meta">4 חדרי שינה · עד 8 אורחים · 130 מ"ר</p><ul class="ft"><li>ג'קוזי פרטי</li><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>יחס המארחים <b>9.2</b></span></div><blockquote>„חוויה נהדרת! המארח היה נחמד מאוד, סבלני ותמיד זמין לעזור.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/desert-and-sea-penthouse-full-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15242888.jpg" alt="פרפקט – חופשה משפחתית – דירת נופש באילת"><div class="badge"><b>8.6</b><span>28 ביקורות<br>ב-Booking</span></div></div><div class="body"><h3>פרפקט – חופשה משפחתית</h3><p class="bk" dir="ltr">Perfect Family Vacation-Private Pool Eilat</p><p class="meta">4 חדרי שינה · עד 10 אורחים · 130 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>גינה</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>9.2</b></span></div><blockquote>„המקום נקי, מסודר, מאובזר. הבעלים נחמדים מאוד, בריכה נחמדה מאוד, הכל עובד.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/perfect-family-vaction-privet-pool-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families groups"><div class="ph"><img loading="lazy" src="img/7205184.jpg" alt="דקל – דירת נופש באילת"></div><div class="body"><h3>דקל</h3><p class="bk" dir="ltr">Dekel-City center and Sea view -new listing</p><p class="meta">4 חדרי שינה · עד 8 אורחים · 120 מ"ר</p><ul class="ft"><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><div class="subs"><span>אינטרנט אלחוטי <b>10</b></span><span>יחס המארחים <b>9.4</b></span></div><blockquote>„הדירה מרווחת ונוחה למשפחה, עם 4 חדרי שינה נפרדים, סלון גדול ומטבח מאובזר. יש חניה ברחוב ומכולת מתחת לדירה.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/dekel-city-center-and-sea-view.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15739810.jpg" alt="הבן – חופשה משפחתית – דירת נופש באילת"></div><div class="body"><h3>הבן – חופשה משפחתית</h3><p class="bk" dir="ltr">Heaven Family Vacation-Amazing Private Pool Sea view Eilat</p><p class="meta">3 חדרי שינה · עד 10 אורחים · 145 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>נוף לים</li><li>חניה חינם</li><li>מרפסת</li></ul><blockquote>„דירה מהממת, מרווחת מאוד ונקייה, מצוידת בכל מה שצריך ומעבר, שירות מקסים.“<cite>מתוך ביקורת אורח ב-Booking</cite></blockquote><a class="btn" href="https://www.booking.com/hotel/il/heaven-family-vacation-amazing-pool-sea-view-eilat.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article><article class="card" data-tags="families pool groups"><div class="ph"><img loading="lazy" src="img/15419473.jpg" alt="אקסקלוסיב פנטהאוז – דירת נופש באילת"></div><div class="body"><h3>אקסקלוסיב פנטהאוז</h3><p class="bk" dir="ltr">Exclusive Premium Penthouse Amazing private Pool Eilat</p><p class="meta">5 חדרי שינה · עד 15 אורחים · 150 מ"ר</p><ul class="ft"><li>בריכה פרטית</li><li>נוף לים</li><li>גינה</li><li>חניה חינם</li></ul><a class="btn" href="https://www.booking.com/hotel/il/pnthvz-tsl-hr-brykh-prtyt-ylt.html" target="_blank" rel="noopener">להזמנה ב-Booking</a></div></article></div></section></div>
 <section class="loves"><div class="wrap"><h2>מה אורחים אוהבים</h2><p>מתוך ביקורות אמיתיות של אורחים ב-Booking (חלקן תורגמו לעברית).</p><div class="lv"><figure><blockquote>„חוזרת למקום הזה שנה שנייה ברצף, ואין על השירותיות של בעל המקום.“</blockquote><figcaption>סי סייד הבן · ביקורת ב-Booking</figcaption></figure><figure><blockquote>„מיקום מעולה, לא הזזנו את הרכב בכלל!! נוף מושלם לים. החדר מקסים, תמורה למחיר מעולה. אין ספק שנחזור שוב.“</blockquote><figcaption>ביץ' סייד לאקשרי · ביקורת ב-Booking</figcaption></figure><figure><blockquote>„הדירה יפה, נקייה, חדשה, מפנקת. הבעלים דאגו להכל עד הפרטים הקטנים. אנחנו בטוח נחזור להתארח שם!!“</blockquote><figcaption>SlowStay קאלם · ביקורת ב-Booking</figcaption></figure><figure><blockquote>„היה מושלם! אנחנו קבוצה של 3 משפחות שמגיעות לאילת כל פעם בחג. דירות חדשות, מפנקות ממש, מאובזרות בכל טוב ונקיות מאוד. קיבלנו שירות אדיב וזמין מהמארחים. בטוח נחזור!“</blockquote><figcaption>רד דזרט · ביקורת ב-Booking</figcaption></figure></div></div></section>
 <section class="faq" id="faq"><div class="wrap"><h2>שאלות נפוצות</h2>
 <details><summary>אפשר להיכנס לדירה מוקדם?</summary>כניסה מוקדמת אפשרית לפי זמינות. אנחנו מאשרים אותה באותו בוקר.</details>
@@ -99,21 +133,157 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
 <a class="fab" href="https://wa.me/972544293989" target="_blank" rel="noopener">וואטסאפ</a>
 <script>
 (function(){
+  var CX=['seaside','royal','towers','brown','city'];
+  var COVERS={
+    seaside:'img/11337509.jpg',
+    royal:'img/8661301.jpg',
+    towers:'img/14159683.jpg',
+    brown:'img/14623232.jpg',
+    city:'img/10568236.jpg'
+  };
   var chips=document.querySelectorAll('.chip');
   var cards=document.querySelectorAll('.card');
   var sections=document.querySelectorAll('.cx');
   var shown=document.getElementById('shown');
+  var folders=document.getElementById('folders');
   var total=cards.length;
+  var activeFilter='all';
+  if(history.scrollRestoration) history.scrollRestoration='manual';
+
+  function hashId(){return (location.hash||'').replace(/^#/,'');}
+  function countPhrase(n){return n===1?'דירה אחת':n+' דירות';}
   function label(n){
     if(n===total) return 'כל הדירות';
     if(n===1) return 'מוצגת דירה אחת';
     return 'מוצגות '+n+' דירות';
   }
-  function apply(f){
+  function fmtScore(v){
+    var r=Math.round(v*10)/10;
+    return (Math.abs(r-Math.round(r))<0.05)?String(Math.round(r)):r.toFixed(1);
+  }
+  function bestScore(sec){
+    var best=-1;
+    sec.querySelectorAll('.badge b').forEach(function(b){
+      var v=parseFloat(String(b.textContent).replace(',','.'));
+      if(!isNaN(v)&&v>best) best=v;
+    });
+    return best;
+  }
+  function coverSrc(sec){
+    var want=COVERS[sec.id];
+    var imgs=sec.querySelectorAll('.ph img');
+    for(var i=0;i<imgs.length;i++){
+      if(imgs[i].getAttribute('src')===want) return want;
+    }
+    return imgs[0]?imgs[0].getAttribute('src'):'';
+  }
+  function node(tag,cls){
+    var n=document.createElement(tag);
+    if(cls) n.className=cls;
+    return n;
+  }
+  function buildFolders(){
+    var prefix='מתחם ';
+    sections.forEach(function(sec){
+      var n=sec.querySelectorAll('.card').length;
+      var raw=(sec.querySelector('h2').textContent||'').trim();
+      var kicker='',name=raw;
+      if(raw.indexOf(prefix)===0){kicker='מתחם';name=raw.slice(prefix.length);}
+      var desc=sec.querySelector('.cxd');
+      var best=bestScore(sec);
+      var a=node('a','folder');
+      a.href='#'+sec.id;
+      var ph=node('span','fph');
+      var img=document.createElement('img');
+      img.src=coverSrc(sec);
+      img.alt='';
+      img.decoding='async';
+      ph.appendChild(img);
+      if(best>=0){
+        var badge=node('span','badge');
+        var b=node('b');
+        b.textContent=fmtScore(best);
+        var cap=node('span');
+        if(n===1) cap.textContent='ציון';
+        else{
+          cap.appendChild(document.createTextNode('הציון'));
+          cap.appendChild(document.createElement('br'));
+          cap.appendChild(document.createTextNode('הגבוה'));
+        }
+        badge.appendChild(b);
+        badge.appendChild(cap);
+        ph.appendChild(badge);
+      }
+      var body=node('span','fbody');
+      if(kicker){
+        var k=node('span','fkicker');
+        k.textContent=kicker;
+        body.appendChild(k);
+      }
+      var nm=node('span','fname');
+      nm.textContent=name;
+      var cnt=node('span','fcount');
+      cnt.textContent=countPhrase(n);
+      body.appendChild(nm);
+      body.appendChild(cnt);
+      if(desc){
+        var d=node('span','fdesc');
+        d.textContent=desc.textContent.trim();
+        body.appendChild(d);
+      }
+      var cta=node('span','fcta');
+      cta.textContent=n===1?'לצפייה בדירה':'לצפייה בדירות';
+      body.appendChild(cta);
+      a.appendChild(ph);
+      a.appendChild(body);
+      folders.appendChild(a);
+    });
+  }
+  function setMode(mode){
+    var root=document.documentElement;
+    root.classList.remove('mode-folders','mode-complex','mode-filter');
+    root.classList.add('mode-'+mode);
+  }
+  function clearCards(){
+    cards.forEach(function(k){k.classList.remove('hid');k.classList.remove('show');});
+    sections.forEach(function(s){s.classList.remove('empty');s.classList.remove('open');});
+  }
+  function markNav(id){
+    document.querySelectorAll('.cxnav a').forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('on',on);
+      if(on) a.setAttribute('aria-current','location');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function paintFolders(){
+    setMode('folders');
+    clearCards();
+    markNav('');
+    shown.textContent=label(total);
+  }
+  function paintComplex(id){
+    var sec=document.getElementById(id);
+    if(!sec){paintFolders();return;}
+    setMode('complex');
+    clearCards();
+    sec.classList.add('open');
+    var n=sec.querySelectorAll('.card').length;
+    var name=(sec.querySelector('h2').textContent||'').trim();
+    shown.textContent=name+' · '+countPhrase(n);
+    markNav(id);
+    sec.querySelectorAll('.card').forEach(function(k){k.classList.remove('show');});
+    void sec.offsetWidth;
+    sec.querySelectorAll('.card').forEach(function(k){k.classList.add('show');});
+  }
+  function paintFilter(f){
+    setMode('filter');
+    sections.forEach(function(s){s.classList.remove('open');});
+    markNav('');
     var n=0;
     cards.forEach(function(k){
       var tags=(k.getAttribute('data-tags')||'').split(/\s+/);
-      var hide=f!=='all'&&tags.indexOf(f)===-1;
+      var hide=tags.indexOf(f)===-1;
       var was=k.classList.contains('hid');
       k.classList.toggle('hid',hide);
       if(hide){k.classList.remove('show');return;}
@@ -124,24 +294,115 @@ footer{background:#071427;color:#bcc;padding:36px 0;font-size:.9rem}footer a{col
       s.classList.toggle('empty',!s.querySelector('.card:not(.hid)'));
     });
     shown.textContent=label(n);
-    var first=document.querySelector('.cx:not(.empty)');
-    if(!first) return;
-    var headerH=document.querySelector('header.top').offsetHeight;
-    var barH=document.querySelector('.filters').offsetHeight;
-    var y=first.getBoundingClientRect().top+window.scrollY-headerH-barH;
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'});
   }
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){
-      chips.forEach(function(x){
-        var on=x===c;
-        x.classList.toggle('on',on);
-        x.setAttribute('aria-pressed',on?'true':'false');
-      });
-      apply(c.getAttribute('data-f'));
+  function scrollToEl(el){
+    if(!el) return;
+    var header=document.querySelector('header.top');
+    var filters=document.querySelector('.filters');
+    var headerH=header?header.offsetHeight:0;
+    var filtersH=filters?filters.offsetHeight:0;
+    var elTop=el.getBoundingClientRect().top+window.scrollY;
+    var filtersTop=filters?filters.getBoundingClientRect().top+window.scrollY:0;
+    var offset=headerH;
+    if(filters&&el!==filters&&!filters.contains(el)&&elTop>=filtersTop-1) offset+=filtersH;
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:Math.max(0,elTop-offset-8),behavior:reduce?'auto':'smooth'});
+  }
+  function syncChips(){
+    chips.forEach(function(x){
+      var on=x.getAttribute('data-f')===activeFilter;
+      x.classList.toggle('on',on);
+      x.setAttribute('aria-pressed',on?'true':'false');
     });
-  });
+  }
+  function applyFromHash(scroll){
+    if(activeFilter!=='all'){paintFilter(activeFilter);return;}
+    var id=hashId();
+    if(CX.indexOf(id)>=0){
+      paintComplex(id);
+      if(scroll) scrollToEl(document.getElementById('browse'));
+      return;
+    }
+    paintFolders();
+    if(scroll&&id) scrollToEl(document.getElementById(id));
+  }
+  function navigate(id){
+    var next='#'+id;
+    if(location.hash!==next) history.pushState(null,'',next);
+    activeFilter='all';
+    syncChips();
+    applyFromHash(true);
+  }
+  var histLock=false;
+  function onHistory(){
+    if(histLock) return;
+    histLock=true;
+    activeFilter='all';
+    syncChips();
+    applyFromHash(true);
+    setTimeout(function(){histLock=false;},80);
+  }
+
+  try{
+    buildFolders();
+    folders.addEventListener('click',function(e){
+      var a=e.target.closest('a.folder');
+      if(!a) return;
+      e.preventDefault();
+      navigate(a.getAttribute('href').replace('#',''));
+      var back=document.getElementById('back-all');
+      if(back) back.focus({preventScroll:true});
+    });
+    document.getElementById('back-all').addEventListener('click',function(e){
+      e.preventDefault();
+      var current=hashId();
+      navigate('apts');
+      var link=folders.querySelector('a.folder[href="#'+current+'"]');
+      if(link) link.focus({preventScroll:true});
+    });
+    document.querySelector('.cxnav').addEventListener('click',function(e){
+      var a=e.target.closest('a');
+      if(!a) return;
+      var id=(a.getAttribute('href')||'').replace('#','');
+      if(CX.indexOf(id)<0) return;
+      e.preventDefault();
+      if(activeFilter!=='all'){
+        var sec=document.getElementById(id);
+        if(sec&&!sec.classList.contains('empty')) scrollToEl(sec);
+        return;
+      }
+      navigate(id);
+    });
+    chips.forEach(function(c){
+      c.addEventListener('click',function(){
+        activeFilter=c.getAttribute('data-f');
+        syncChips();
+        if(activeFilter==='all'){
+          if(CX.indexOf(hashId())>=0) navigate('apts');
+          else{
+            paintFolders();
+            scrollToEl(document.getElementById('browse'));
+          }
+          return;
+        }
+        if(CX.indexOf(hashId())>=0) history.replaceState(null,'','#apts');
+        paintFilter(activeFilter);
+        var first=document.querySelector('.cx:not(.empty)');
+        if(first) scrollToEl(first);
+      });
+    });
+    window.addEventListener('popstate',onHistory);
+    window.addEventListener('hashchange',onHistory);
+    var start=hashId();
+    if(CX.indexOf(start)>=0) applyFromHash(true);
+    else{
+      applyFromHash(false);
+      if(start&&document.getElementById(start)) scrollToEl(document.getElementById(start));
+    }
+  }catch(err){
+    document.documentElement.classList.remove('js','mode-folders','mode-complex','mode-filter');
+    console.error(err);
+  }
 })();
 </script>
 </body></html>
