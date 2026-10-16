@@ -428,14 +428,19 @@ body { font-family: Arial, "Noto Sans Hebrew", sans-serif; }
 .topnav {
   position: sticky; top: 0; z-index: 30;
   display: flex; align-items: center; gap: 22px;
-  height: 58px; padding: 0 22px;
+  min-height: 58px; padding: 8px 22px;
   background: rgba(238, 231, 224, .94);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
+.brand-block { display: flex; flex-direction: column; gap: 3px; flex: none; align-items: flex-start; }
 .topnav .brand {
-  flex: none; font-weight: 700; letter-spacing: .18em; font-size: 12px; line-height: 1;
+  font-weight: 700; letter-spacing: .18em; font-size: 12px; line-height: 1;
 }
+.nav-home {
+  font-size: 11px; font-weight: 400; line-height: 1.2; color: #7b7066; white-space: nowrap;
+}
+.nav-home:hover { color: var(--clay); }
 .topnav nav {
   display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none; min-width: 0;
 }
@@ -521,6 +526,22 @@ footer .from-house a {
   padding-bottom: 1px;
 }
 footer .from-house a:hover { border-bottom-color: var(--clay); }
+footer .managed-by {
+  margin: 8px auto 0;
+  max-width: 28rem;
+  font: 400 16px / 1.55 Georgia, "Times New Roman", "Noto Serif Hebrew", serif;
+  color: var(--ink);
+}
+footer .managed-by a { color: inherit; border-bottom: 1px solid rgba(41, 41, 35, .28); padding-bottom: 1px; }
+footer .managed-by a:hover { color: var(--clay); border-bottom-color: var(--clay); }
+.logo-stage { margin-bottom: 8px; }
+.logo-home {
+  margin: 0 0 18px;
+  font: 400 15px / 1.4 Georgia, "Times New Roman", "Noto Serif Hebrew", serif;
+  color: #7b7066;
+}
+.logo-home a { color: var(--clay); border-bottom: 1px solid rgba(139, 78, 57, .4); padding-bottom: 1px; }
+.logo-home a:hover { border-bottom-color: var(--clay); }
 .foot-phone {
   display: inline-block; margin-top: 18px; letter-spacing: .12em;
   font-size: 14px; font-weight: 700; border-bottom: 1px solid var(--ink); padding-bottom: 4px;
@@ -568,7 +589,7 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
 
 @media (width <= 850px) {
-  .topnav { height: 52px; padding: 0 14px; gap: 14px; }
+  .topnav { min-height: 52px; padding: 8px 14px; gap: 14px; }
   .topnav nav { flex: 1; }
   .stay { grid-template-columns: 1fr; gap: 16px; }
   .stay-actions { flex-direction: column; align-items: stretch; }
@@ -589,7 +610,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 </head>
 <body>
 <div class="topnav">
+<div class="brand-block">
 <a class="brand" href="#top">SLOW STAY</a>
+<a class="nav-home" href="../guests-preview/">מבית נופש אילתי</a>
+</div>
 <nav aria-label="ניווט באתר">
 <a href="#apartments">דירות</a>
 <a href="#practical">לפני ההגעה</a>
@@ -605,7 +629,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 </nav>
 </div>
 <main>
-<header class="hero" id="top"><div class="hero-copy"><div class="logo-stage"><img class="hero-logo" src="slow-stay-mark-transparent.png" alt="Slow Stay Eilat — The world can wait"></div><h1 class="welcome-title"><span class="welcome-hebrew">ברוכים הבאים ל־</span><span class="welcome-brand-line"><bdi>Slow Stay Eilat</bdi><span>בוטיק</span></span></h1><p class="kicker">THE SLOW GUIDE TO EILAT</p><p class="lead">ריכזנו עבורכם המלצות עם ניסיון של חיים שלמים באילת. תנו לנו לדעת מה חשבתם! סליחה מראש שההמלצות קצרות (אבל שוות) — את שאר המידע תוכלו להשלים בגוגל.</p><a class="primary-link" href="#guide">למדריך שלנו <span>↓</span></a></div><div class="hero-image" role="img" aria-label="מרפסת Slow Stay באילת בשעת הזהב"></div></header>
+<header class="hero" id="top"><div class="hero-copy"><div class="logo-stage"><img class="hero-logo" src="slow-stay-mark-transparent.png" alt="Slow Stay Eilat — The world can wait"></div><p class="logo-home">מבית <a href="../guests-preview/">נופש אילתי</a></p><h1 class="welcome-title"><span class="welcome-hebrew">ברוכים הבאים ל־</span><span class="welcome-brand-line"><bdi>Slow Stay Eilat</bdi><span>בוטיק</span></span></h1><p class="kicker">THE SLOW GUIDE TO EILAT</p><p class="lead">ריכזנו עבורכם המלצות עם ניסיון של חיים שלמים באילת. תנו לנו לדעת מה חשבתם! סליחה מראש שההמלצות קצרות (אבל שוות) — את שאר המידע תוכלו להשלים בגוגל.</p><a class="primary-link" href="#guide">למדריך שלנו <span>↓</span></a></div><div class="hero-image" role="img" aria-label="מרפסת Slow Stay באילת בשעת הזהב"></div></header>
 <section class="guide-section" id="apartments">
 <div class="section-heading">
 <p class="eyebrow">THE APARTMENTS</p>
@@ -691,6 +715,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 <p>קחו את הזמן.<br>העולם יכול לחכות.</p>
 <small>THE WORLD CAN WAIT</small>
 <p class="from-house">מבית <a href="../guests-preview/">נופש אילתי</a></p>
+<p class="managed-by">מנוהל על ידי <a href="../">ד. חסידים – ניהול נופש ושנתי באילת</a></p>
 <a class="foot-phone" href="tel:+972544293989">054-4293989</a>
 </div>
 <div class="foot-links">
