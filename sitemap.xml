@@ -8,7 +8,13 @@
   </url>
   <url>
     <loc>https://davidchassidim-cyber.github.io/Eilat-property-management-/guests-preview/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://davidchassidim-cyber.github.io/Eilat-property-management-/slowstay/</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
