@@ -313,11 +313,24 @@ a.btn[href*="booking.com"]:hover{background:#0057b8;color:#fff;border-color:tran
     var r=Math.round(v*10)/10;
     return (Math.abs(r-Math.round(r))<0.05)?String(Math.round(r)):r.toFixed(1);
   }
+  function scoreValue(text){
+    var v=parseFloat(String(text).replace(',','.'));
+    return isNaN(v)?NaN:v;
+  }
+  function hideLowScores(){
+    document.querySelectorAll('.badge').forEach(function(badge){
+      var b=badge.querySelector('b');
+      if(!b) return;
+      var v=scoreValue(b.textContent);
+      if(!isNaN(v)&&v<8.5) badge.remove();
+    });
+  }
   function cardScore(card){
     var b=card.querySelector('.badge b');
     if(!b) return '';
-    var v=parseFloat(String(b.textContent).replace(',','.'));
-    return isNaN(v)?'':fmtScore(v);
+    var v=scoreValue(b.textContent);
+    if(isNaN(v)||v<8.5) return '';
+    return fmtScore(v);
   }
   function openLabel(id,n){
     var base=id==='city'?'לכל הדירות ברחבי העיר ('+n+')':'לכל הדירות במתחם ('+n+')';
@@ -517,6 +530,7 @@ a.btn[href*="booking.com"]:hover{background:#0057b8;color:#fff;border-color:tran
   }
 
   try{
+    hideLowScores();
     buildFolders();
     folders.addEventListener('click',function(e){
       var a=e.target.closest('a.fsq, a.fcta');
