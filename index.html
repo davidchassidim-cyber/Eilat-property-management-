@@ -659,8 +659,9 @@
               <img class="prop-photo" src="guests-preview/img/49915724/01.jpg" alt="לב אילת – נוף לים" width="76" height="76" loading="lazy" />
               <div class="prop-body">
                 <div class="prop-name">לב אילת – נוף לים</div>
-                <div class="prop-sub">4.81 · 227 ביקורות ב-Airbnb</div>
+                <div class="prop-sub">227 ביקורות ב-Airbnb</div>
               </div>
+              <div class="score" data-scale="5">4.81<small>מתוך 5</small></div>
             </a>
           </div>
         </div>
@@ -755,6 +756,7 @@
   </footer>
   <script>
     document.querySelectorAll("#apartments .score").forEach(function (score) {
+      if (score.getAttribute("data-scale") === "5") return;
       var value = parseFloat(score.textContent);
       if (!(value >= 8.5)) score.remove();
     });
