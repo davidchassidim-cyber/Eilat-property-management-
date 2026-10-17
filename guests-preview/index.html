@@ -230,6 +230,12 @@ body.lb-open{overflow:hidden}
 .lb-count{margin:0;font-weight:400;font-family:var(--serif);font-size:1rem;letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .lb-book{width:auto;margin:0;color:#faf7f3;border-bottom-color:#faf7f3}
 .lb-book:hover{color:#fff;border-bottom-color:#fff;background:none}
+a.btn[href*="booking.com"]{display:inline-flex;justify-content:center;align-items:center;align-self:flex-start;margin-top:auto;background:#003580;color:#fff;font-weight:700;font-size:15px;line-height:1.2;text-align:center;text-decoration:none;padding:14px 26px;border:0;border-radius:8px;border-bottom:0}
+a.btn[href*="booking.com"]:hover{background:#0057b8;color:#fff;border-color:transparent}
+.lb a.btn[href*="booking.com"]{width:min(420px,100%);margin:0}
+@media(max-width:760px){
+  .card a.btn[href*="booking.com"]{display:flex;width:100%;align-self:stretch}
+}
 @media(max-width:700px){
   .lb-stage{padding:4px 8px}
   .lb-nav{width:40px;height:40px}
