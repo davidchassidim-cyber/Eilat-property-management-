@@ -514,6 +514,18 @@ body { font-family: Arial, "Noto Sans Hebrew", sans-serif; }
 }
 .fact-grid p { margin: 0; color: #6a6459; font-size: 14px; line-height: 1.75; }
 
+.review-grid { border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; }
+.review { margin: 0; border-bottom: 1px solid var(--line); padding: 32px 28px 28px; }
+.review:nth-child(odd) { border-inline-end: 1px solid var(--line); }
+.review blockquote { margin: 0; }
+.review blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font: 400 18px / 1.75 Georgia, "Times New Roman", "Noto Serif Hebrew", serif;
+}
+.review blockquote[dir="ltr"] { text-align: left; }
+.review figcaption { margin-top: 16px; color: var(--clay); font-size: 13px; font-weight: 700; }
+
 footer .from-house {
   margin: 18px 0 0;
   font: 400 20px / 1.45 Georgia, "Times New Roman", "Noto Serif Hebrew", serif;
@@ -598,6 +610,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
   .fact-grid { grid-template-columns: 1fr 1fr; }
   .fact-grid article:nth-child(2n) { border-inline-end: 0; }
   .practical { padding: 28px 22px 56px; }
+  .review-grid { grid-template-columns: 1fr; }
+  .review, .review:nth-child(odd) { border-inline-end: 0; padding: 26px 0; }
   .foot-links { align-items: center; justify-self: center; }
   .lb-stage { grid-template-columns: 44px minmax(0, 1fr) 44px; }
 }
@@ -616,6 +630,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 </div>
 <nav aria-label="ניווט באתר">
 <a href="#apartments">דירות</a>
+<a href="#reviews">ביקורות</a>
 <a href="#practical">נעים לדעת</a>
 <a href="#guide">מדריך</a>
 <a href="#morning">קפה</a>
@@ -634,7 +649,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 <div class="section-heading">
 <p class="eyebrow">THE APARTMENTS</p>
 <h2>שלוש דירות באילת</h2>
-<p class="section-intro">Sunset, Calm ו-Pure. שלושה קצבים לאותו בית רגוע — פתחו את כל התמונות, וראו את הציון מ-Booking.</p>
+<p class="section-intro">Sunset, Calm ו-Pure. שלושה קצבים לאותו בית רגוע — פתחו את כל התמונות, וראו את הציון מ-Booking. גלו עוד תמונות ופרטים בבוקינג, והזמינו את הדירה שמתאימה לכם בקלות ישירות מהעמוד של כל דירה.</p>
 </div>
 <div class="stays">
 <article class="stay" id="apt-sunset">
@@ -697,6 +712,38 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--clay); outline-
 </div>
 </div>
 </article>
+</div>
+</section>
+<section class="guide-section" id="reviews" aria-labelledby="reviews-title">
+<div class="section-heading">
+<p class="eyebrow">GUEST REVIEWS</p>
+<h2 id="reviews-title">מה אורחים אומרים עלינו?</h2>
+</div>
+<div class="review-grid">
+<figure class="review">
+<blockquote><p>הכל חדש ומשוכלל, מטבח שיש בו הכללל בישלנו בו כמעט כל השהות שלנו והיה ממש ממש כיף.</p></blockquote>
+<figcaption><bdi>Tahel</bdi> · <bdi>Israel</bdi> · <bdi>Sunset</bdi></figcaption>
+</figure>
+<figure class="review">
+<blockquote><p>הכל חדש ויפה<br>שמור ונקי מאוד<br>דירה גדולה, מיטות נוחות הכניסה גדולה ומקום לשבת לנוח</p></blockquote>
+<figcaption><bdi>Daniel</bdi> · <bdi>Israel</bdi> · <bdi>Sunset</bdi></figcaption>
+</figure>
+<figure class="review">
+<blockquote><p>הדירה נקייה, יש חשיבה על כל הדברים הקטנים שעושים את החופשה נוחה ונעימה, ממליצים בחום רב</p></blockquote>
+<figcaption><bdi>Meir</bdi> · <bdi>Israel</bdi> · <bdi>Calm</bdi></figcaption>
+</figure>
+<figure class="review">
+<blockquote><p>הדירה יפה, נקייה, חדשה ,מפנקת<br>הבעלים דאגו להכל עד הפרטים הקטנים<br>אנחנו בטוח נחזור להתארח שם!!</p></blockquote>
+<figcaption><bdi>נטלי</bdi> · <bdi>Israel</bdi> · <bdi>Calm</bdi></figcaption>
+</figure>
+<figure class="review">
+<blockquote dir="ltr"><p>Everything was clean , and new , the balcony was a good addition</p></blockquote>
+<figcaption><bdi>Ben</bdi> · <bdi>Israel</bdi> · <bdi>Pure</bdi></figcaption>
+</figure>
+<figure class="review">
+<blockquote dir="ltr"><p>Everything !!!! All new !!! Everything you need !!!I strongly reccomend</p></blockquote>
+<figcaption><bdi>Ricardo</bdi> · <bdi>Argentina</bdi> · <bdi>Pure</bdi></figcaption>
+</figure>
 </div>
 </section>
 <section class="practical" id="practical" aria-labelledby="practical-title">
