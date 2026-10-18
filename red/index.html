@@ -155,7 +155,7 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   background: var(--sun);
 }
 
-.hero { padding: 0 0 28px; overflow: visible; }
+.hero { padding: calc(min(560px, 100vw) * 0.1773) 0 28px; overflow: visible; }
 .hero-frame {
   width: min(560px, 100%);
   margin: 0 auto;
@@ -176,6 +176,7 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   margin: 0;
   transform: translateX(-50%);
   pointer-events: none;
+  overflow: hidden;
 }
 .sunset-sky {
   position: absolute;
@@ -186,12 +187,13 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
 .sunset-sun {
   position: absolute;
   left: 50%;
-  bottom: 8%;
-  width: calc(var(--w) * 0.048);
-  height: calc(var(--w) * 0.048);
-  margin: 0 0 calc(var(--w) * -0.024) calc(var(--w) * -0.024);
+  bottom: 0;
+  width: calc(var(--w) * 0.11);
+  height: calc(var(--w) * 0.11);
+  transform: translate(-50%, 50%);
   border-radius: 50%;
-  background: #fffbf8;
+  background: #fbf7f4;
+  box-shadow: 0 0 0 calc(var(--w) * 0.017) rgba(251, 247, 244, .45);
 }
 .horizons span {
   position: absolute;
