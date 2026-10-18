@@ -22,7 +22,7 @@
 <link rel="icon" href="mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;600;700&family=Noto+Serif+Hebrew:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;600;700&family=Noto+Serif+Hebrew:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -184,10 +184,10 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   position: absolute;
   left: 16%;
   right: 16%;
-  bottom: 0;
+  bottom: 1px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
 }
 .sunset-sea span {
   display: block;
@@ -200,7 +200,7 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
 .ridge-zone {
   position: relative;
   z-index: 1;
-  margin-top: 2px;
+  margin-top: 8px;
 }
 .hero-copy {
   position: relative;
@@ -214,9 +214,9 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   position: absolute;
   left: 50%;
   width: calc(min(860px, 100vw) * 1.2);
-  aspect-ratio: 1200 / 160;
+  aspect-ratio: 1200 / 300;
   height: auto;
-  top: calc(min(860px, 100vw) * -0.143);
+  top: calc(min(860px, 100vw) * -0.148);
   transform: translateX(-50%);
   z-index: 0;
   pointer-events: none;
@@ -225,30 +225,29 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
 .ridgeline .ridge-inner {
   fill: none;
   stroke: url(#red-ridge-stroke);
-  stroke-width: 1.15px;
+  stroke-width: 2px;
   stroke-linejoin: miter;
   stroke-linecap: butt;
-  stroke-miterlimit: 3.2;
+  stroke-miterlimit: 2.4;
   vector-effect: non-scaling-stroke;
 }
 .ridgeline .ridge-inner {
-  stroke: #d7b0aa;
-  stroke-width: 0.7px;
-  opacity: .55;
+  stroke: #b56a72;
+  stroke-width: 0.9px;
+  opacity: .7;
 }
-.ridgeline .ridge-fill {
-  stroke: none;
-  fill: url(#red-ridge-fill);
-}
-.markline { display: flex; justify-content: center; margin: 0 0 4px; }
-.markline .mark { width: 34px; height: 30px; }
+.ridgeline .ridge-fill { stroke: none; }
+.ridgeline .face-light { fill: url(#red-face-light); }
+.ridgeline .face-shadow { fill: url(#red-face-shadow); }
+.markline { display: flex; justify-content: center; margin: 0 0 2px; }
+.markline .mark { width: 32px; height: 26px; }
 .markline .mark::before { inset: 0 2px 12px; border-radius: 20px 20px 0 0; }
 .markline .mark i { width: 13px; height: 13px; margin-left: -6.5px; bottom: 8px; }
 .markline .mark::after { left: 6px; right: 6px; bottom: 2px; box-shadow: 0 -4px 0 rgba(122, 47, 59, .4); }
 .brand-tag {
-  margin: 0 0 calc(min(860px, 100vw) * 0.14);
+  margin: 0 0 calc(min(860px, 100vw) * 0.145);
   color: var(--burgundy);
-  letter-spacing: .16em;
+  letter-spacing: .14em;
   font-size: 12px;
   font-weight: 700;
   direction: ltr;
@@ -259,13 +258,26 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
   margin: 0;
   letter-spacing: -.03em;
-  line-height: 1.15;
+  line-height: 1;
+  color: #3a1a1f;
 }
-.h1-main { font-size: clamp(34px, 7.4vw, 60px); line-height: 1.12; }
-.h1-sub { font-size: clamp(18px, 3.1vw, 28px); line-height: 1.3; letter-spacing: 0; }
+.h1-main {
+  font-size: calc(min(860px, 100vw) * 0.128);
+  font-weight: 700;
+  line-height: .95;
+  color: #3a1a1f;
+}
+.h1-sub {
+  font-family: Arial, "Noto Sans Hebrew", sans-serif;
+  font-weight: 500;
+  font-size: calc(min(860px, 100vw) * 0.046);
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: #3a1a1f;
+}
 .hero-rest { text-align: center; margin-top: 22px; }
 .lead { margin: 0 auto; max-width: 38rem; color: var(--muted); font-size: 17px; }
 .home-line { margin: 18px 0 0; color: var(--muted); font-size: 14px; }
@@ -492,8 +504,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
   .topnav { padding-inline: 28px; }
   .sunset { height: 240px; }
   .sunset-sun { width: 54px; height: 54px; margin-left: -27px; bottom: 0; }
-  .markline { margin-bottom: 8px; }
-  .markline .mark { width: 42px; height: 36px; }
+  .markline { margin-bottom: 4px; }
+  .markline .mark { width: 40px; height: 32px; }
   .hero { padding-bottom: 48px; }
   .stay {
     display: grid;
@@ -548,28 +560,33 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
 <p class="markline"><span class="mark" aria-hidden="true"><i></i></span></p>
 <p class="brand-tag">Red Apartments</p>
 <div class="title-ridge">
-<svg class="ridgeline" viewBox="-90 200 1200 160" aria-hidden="true">
+<svg class="ridgeline" viewBox="-90 180 1200 300" aria-hidden="true">
 <defs>
 <linearGradient id="red-ridge-stroke" gradientUnits="userSpaceOnUse" x1="-90" y1="0" x2="1110" y2="0">
-<stop offset="0" stop-color="#e7c4be" stop-opacity="0"/>
-<stop offset="0.05" stop-color="#e4b4ac" stop-opacity=".45"/>
-<stop offset="0.16" stop-color="#d7a39c" stop-opacity=".7"/>
-<stop offset="0.38" stop-color="#c48988" stop-opacity=".88"/>
-<stop offset="0.53" stop-color="#b97878" stop-opacity="1"/>
-<stop offset="0.72" stop-color="#c48988" stop-opacity=".82"/>
-<stop offset="0.9" stop-color="#e4b4ac" stop-opacity=".5"/>
-<stop offset="1" stop-color="#e7c4be" stop-opacity="0"/>
+<stop offset="0" stop-color="#c98990" stop-opacity="0"/>
+<stop offset="0.06" stop-color="#a44a54" stop-opacity=".95"/>
+<stop offset="0.24" stop-color="#8a3542" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#6e2430" stop-opacity="1"/>
+<stop offset="0.76" stop-color="#8a3542" stop-opacity="1"/>
+<stop offset="0.93" stop-color="#a44a54" stop-opacity=".9"/>
+<stop offset="1" stop-color="#c98990" stop-opacity="0"/>
 </linearGradient>
-<linearGradient id="red-ridge-fill" gradientUnits="userSpaceOnUse" x1="530" y1="215" x2="530" y2="320">
-<stop offset="0" stop-color="#e7b0a4" stop-opacity=".28"/>
-<stop offset="0.55" stop-color="#f0d0ca" stop-opacity=".08"/>
+<linearGradient id="red-face-light" gradientUnits="userSpaceOnUse" x1="450" y1="210" x2="420" y2="450">
+<stop offset="0" stop-color="#f8e0d8" stop-opacity=".95"/>
+<stop offset="0.35" stop-color="#e7b0a4" stop-opacity=".62"/>
+<stop offset="1" stop-color="#f7f3ef" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="red-face-shadow" gradientUnits="userSpaceOnUse" x1="660" y1="210" x2="740" y2="460">
+<stop offset="0" stop-color="#b85a68" stop-opacity=".78"/>
+<stop offset="0.4" stop-color="#8a3542" stop-opacity=".42"/>
 <stop offset="1" stop-color="#f7f3ef" stop-opacity="0"/>
 </linearGradient>
 </defs>
-<path class="ridge-fill" d="M365.3 285.2 L529.6 215.5 L693.8 291.7 L640 318 L430 316 Z"/>
-<path class="ridge-line" d="M-84.1 343 L113 312.7 L302.2 265.4 L365.3 285.2 L529.6 215.5 L612.4 261.5 L693.8 291.7 L788.4 262.8 L940.9 315.4 L1098.6 343"/>
-<path class="ridge-inner" d="M491.5 268 L518 240"/>
-<path class="ridge-inner" d="M560 248 L608 288"/>
+<path class="ridge-fill face-light" d="M302 380 L365 410 L529.6 200 L500 445 L340 448 Z"/>
+<path class="ridge-fill face-shadow" d="M529.6 200 L640 370 L710 436 L788.4 235 L880 448 L520 445 Z"/>
+<path class="ridge-line" d="M-84 436 L113 420 L302 380 L365 410 L529.6 200 L640 370 L710 436 L788.4 235 L941 430 L1099 436"/>
+<path class="ridge-inner" d="M470 290 L515 222"/>
+<path class="ridge-inner" d="M555 250 L670 340"/>
 </svg>
 <h1>
 <span class="h1-main" dir="rtl"><span class="h1-he">דירות נופש</span> <bdi class="h1-en" dir="ltr">Red</bdi></span>
