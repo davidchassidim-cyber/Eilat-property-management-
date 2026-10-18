@@ -51,7 +51,7 @@
   color-scheme: light only;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; background: var(--paper); }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; background: var(--paper); overflow-x: clip; }
 body {
   margin: 0;
   color: var(--ink);
@@ -155,24 +155,24 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   background: var(--sun);
 }
 
-.hero { padding: 18px 0 28px; }
+.hero { padding: 18px 0 28px; overflow-x: clip; }
 .sunset {
   position: relative;
   z-index: 2;
   width: min(860px, 100%);
-  height: 214px;
+  height: 194px;
   margin: 8px auto 0;
 }
 .sunset-sky {
   position: absolute;
-  inset: 0 0 42px;
+  inset: 0 0 22px;
   border-radius: 160px 160px 0 0;
   background: linear-gradient(180deg, #f7f3ef 0%, #f6ddd4 28%, #e7b0a4 62%, #a44a54 86%, #7a2f3b 100%);
 }
 .sunset-sun {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 0;
   width: 46px;
   height: 46px;
   margin-left: -23px;
@@ -213,9 +213,10 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
 .ridgeline {
   position: absolute;
   left: 50%;
-  top: -34px;
-  width: 100vw;
-  height: 50px;
+  width: calc(min(860px, 100vw) * 1.2);
+  aspect-ratio: 1200 / 160;
+  height: auto;
+  top: calc(min(860px, 100vw) * -0.143);
   transform: translateX(-50%);
   z-index: 0;
   pointer-events: none;
@@ -224,28 +225,28 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
 .ridgeline .ridge-inner {
   fill: none;
   stroke: url(#red-ridge-stroke);
-  stroke-width: 1.05px;
+  stroke-width: 1.15px;
   stroke-linejoin: miter;
   stroke-linecap: butt;
-  stroke-miterlimit: 4;
+  stroke-miterlimit: 3.2;
   vector-effect: non-scaling-stroke;
 }
 .ridgeline .ridge-inner {
-  stroke: #c49298;
-  stroke-width: 0.75px;
-  opacity: .4;
+  stroke: #d7b0aa;
+  stroke-width: 0.7px;
+  opacity: .55;
 }
 .ridgeline .ridge-fill {
   stroke: none;
   fill: url(#red-ridge-fill);
 }
-.markline { display: flex; justify-content: center; margin: 0 0 14px; }
-.markline .mark { width: 42px; height: 38px; }
+.markline { display: flex; justify-content: center; margin: 0 0 4px; }
+.markline .mark { width: 34px; height: 30px; }
 .markline .mark::before { inset: 0 2px 12px; border-radius: 20px 20px 0 0; }
 .markline .mark i { width: 13px; height: 13px; margin-left: -6.5px; bottom: 8px; }
 .markline .mark::after { left: 6px; right: 6px; bottom: 2px; box-shadow: 0 -4px 0 rgba(122, 47, 59, .4); }
 .brand-tag {
-  margin: 0 0 42px;
+  margin: 0 0 calc(min(860px, 100vw) * 0.14);
   color: var(--burgundy);
   letter-spacing: .16em;
   font-size: 12px;
@@ -489,10 +490,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
 @media (min-width: 800px) {
   .wrap { width: min(1080px, calc(100% - 64px)); }
   .topnav { padding-inline: 28px; }
-  .sunset { height: 260px; }
-  .sunset-sun { width: 54px; height: 54px; margin-left: -27px; bottom: 28px; }
-  .brand-tag { margin-bottom: 56px; }
-  .ridgeline { top: -46px; height: 66px; }
+  .sunset { height: 240px; }
+  .sunset-sun { width: 54px; height: 54px; margin-left: -27px; bottom: 0; }
+  .markline { margin-bottom: 8px; }
+  .markline .mark { width: 42px; height: 36px; }
   .hero { padding-bottom: 48px; }
   .stay {
     display: grid;
@@ -547,28 +548,28 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
 <p class="markline"><span class="mark" aria-hidden="true"><i></i></span></p>
 <p class="brand-tag">Red Apartments</p>
 <div class="title-ridge">
-<svg class="ridgeline" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+<svg class="ridgeline" viewBox="-90 200 1200 160" aria-hidden="true">
 <defs>
-<linearGradient id="red-ridge-stroke" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-<stop offset="0" stop-color="#e7b0a4" stop-opacity="0"/>
-<stop offset="0.16" stop-color="#e4b4ac" stop-opacity=".32"/>
-<stop offset="0.34" stop-color="#c48990" stop-opacity=".58"/>
-<stop offset="0.5" stop-color="#9a5560" stop-opacity=".7"/>
-<stop offset="0.66" stop-color="#c48990" stop-opacity=".58"/>
-<stop offset="0.84" stop-color="#e4b4ac" stop-opacity=".32"/>
-<stop offset="1" stop-color="#e7b0a4" stop-opacity="0"/>
+<linearGradient id="red-ridge-stroke" gradientUnits="userSpaceOnUse" x1="-90" y1="0" x2="1110" y2="0">
+<stop offset="0" stop-color="#e7c4be" stop-opacity="0"/>
+<stop offset="0.05" stop-color="#e4b4ac" stop-opacity=".45"/>
+<stop offset="0.16" stop-color="#d7a39c" stop-opacity=".7"/>
+<stop offset="0.38" stop-color="#c48988" stop-opacity=".88"/>
+<stop offset="0.53" stop-color="#b97878" stop-opacity="1"/>
+<stop offset="0.72" stop-color="#c48988" stop-opacity=".82"/>
+<stop offset="0.9" stop-color="#e4b4ac" stop-opacity=".5"/>
+<stop offset="1" stop-color="#e7c4be" stop-opacity="0"/>
 </linearGradient>
-<linearGradient id="red-ridge-fill" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="180">
-<stop offset="0" stop-color="#e7b0a4" stop-opacity=".16"/>
-<stop offset="0.45" stop-color="#f3d2cb" stop-opacity=".06"/>
+<linearGradient id="red-ridge-fill" gradientUnits="userSpaceOnUse" x1="530" y1="215" x2="530" y2="320">
+<stop offset="0" stop-color="#e7b0a4" stop-opacity=".28"/>
+<stop offset="0.55" stop-color="#f0d0ca" stop-opacity=".08"/>
 <stop offset="1" stop-color="#f7f3ef" stop-opacity="0"/>
 </linearGradient>
 </defs>
-<path class="ridge-fill" d="M0 174 L190 162 L330 96 L420 142 L505 118 L578 16 L594 38 L610 28 L680 112 L790 144 L885 96 L1040 158 L1200 174 L1200 180 L0 180 Z"/>
-<path class="ridge-line" d="M0 174 L190 162 L330 96 L420 142 L505 118 L578 16 L594 38 L610 28 L680 112 L790 144 L885 96 L1040 158 L1200 174"/>
-<path class="ridge-inner" d="M536 108 L566 52"/>
-<path class="ridge-inner" d="M552 124 L584 68"/>
-<path class="ridge-inner" d="M598 50 L650 108"/>
+<path class="ridge-fill" d="M365.3 285.2 L529.6 215.5 L693.8 291.7 L640 318 L430 316 Z"/>
+<path class="ridge-line" d="M-84.1 343 L113 312.7 L302.2 265.4 L365.3 285.2 L529.6 215.5 L612.4 261.5 L693.8 291.7 L788.4 262.8 L940.9 315.4 L1098.6 343"/>
+<path class="ridge-inner" d="M491.5 268 L518 240"/>
+<path class="ridge-inner" d="M560 248 L608 288"/>
 </svg>
 <h1>
 <span class="h1-main" dir="rtl"><span class="h1-he">דירות נופש</span> <bdi class="h1-en" dir="ltr">Red</bdi></span>
