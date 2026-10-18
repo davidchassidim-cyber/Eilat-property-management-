@@ -220,13 +220,20 @@ h1, h2, h3, .quote blockquote, footer .line, .markline {
   z-index: 0;
   pointer-events: none;
 }
-.ridgeline .ridge-line {
+.ridgeline .ridge-line,
+.ridgeline .ridge-inner {
   fill: none;
   stroke: url(#red-ridge-stroke);
-  stroke-width: 1.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  stroke-width: 1.05px;
+  stroke-linejoin: miter;
+  stroke-linecap: butt;
+  stroke-miterlimit: 4;
   vector-effect: non-scaling-stroke;
+}
+.ridgeline .ridge-inner {
+  stroke: #c49298;
+  stroke-width: 0.75px;
+  opacity: .4;
 }
 .ridgeline .ridge-fill {
   stroke: none;
@@ -544,11 +551,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
 <defs>
 <linearGradient id="red-ridge-stroke" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
 <stop offset="0" stop-color="#e7b0a4" stop-opacity="0"/>
-<stop offset="0.14" stop-color="#d7a099" stop-opacity=".45"/>
-<stop offset="0.32" stop-color="#a44a54" stop-opacity=".85"/>
-<stop offset="0.5" stop-color="#7a2f3b"/>
-<stop offset="0.68" stop-color="#a44a54" stop-opacity=".85"/>
-<stop offset="0.86" stop-color="#d7a099" stop-opacity=".45"/>
+<stop offset="0.16" stop-color="#e4b4ac" stop-opacity=".32"/>
+<stop offset="0.34" stop-color="#c48990" stop-opacity=".58"/>
+<stop offset="0.5" stop-color="#9a5560" stop-opacity=".7"/>
+<stop offset="0.66" stop-color="#c48990" stop-opacity=".58"/>
+<stop offset="0.84" stop-color="#e4b4ac" stop-opacity=".32"/>
 <stop offset="1" stop-color="#e7b0a4" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="red-ridge-fill" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="180">
@@ -557,8 +564,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outl
 <stop offset="1" stop-color="#f7f3ef" stop-opacity="0"/>
 </linearGradient>
 </defs>
-<path class="ridge-fill" d="M0.0 172.0 C69.0 172.0 81.0 166.0 150.0 166.0 C205.2 166.0 214.8 146.0 270.0 146.0 C311.4 146.0 318.6 102.0 360.0 102.0 C396.8 102.0 403.2 136.0 440.0 136.0 C476.8 136.0 483.2 74.0 520.0 74.0 C556.8 74.0 563.2 24.0 600.0 24.0 C636.8 24.0 643.2 74.0 680.0 74.0 C721.4 74.0 728.6 134.0 770.0 134.0 C811.4 134.0 818.6 96.0 860.0 96.0 C915.2 96.0 924.8 148.0 980.0 148.0 C1081.2 148.0 1098.8 172.0 1200.0 172.0 L1200 180 L0 180 Z"/>
-<path class="ridge-line" d="M0.0 172.0 C69.0 172.0 81.0 166.0 150.0 166.0 C205.2 166.0 214.8 146.0 270.0 146.0 C311.4 146.0 318.6 102.0 360.0 102.0 C396.8 102.0 403.2 136.0 440.0 136.0 C476.8 136.0 483.2 74.0 520.0 74.0 C556.8 74.0 563.2 24.0 600.0 24.0 C636.8 24.0 643.2 74.0 680.0 74.0 C721.4 74.0 728.6 134.0 770.0 134.0 C811.4 134.0 818.6 96.0 860.0 96.0 C915.2 96.0 924.8 148.0 980.0 148.0 C1081.2 148.0 1098.8 172.0 1200.0 172.0"/>
+<path class="ridge-fill" d="M0 174 L190 162 L330 96 L420 142 L505 118 L578 16 L594 38 L610 28 L680 112 L790 144 L885 96 L1040 158 L1200 174 L1200 180 L0 180 Z"/>
+<path class="ridge-line" d="M0 174 L190 162 L330 96 L420 142 L505 118 L578 16 L594 38 L610 28 L680 112 L790 144 L885 96 L1040 158 L1200 174"/>
+<path class="ridge-inner" d="M536 108 L566 52"/>
+<path class="ridge-inner" d="M552 124 L584 68"/>
+<path class="ridge-inner" d="M598 50 L650 108"/>
 </svg>
 <h1>
 <span class="h1-main" dir="rtl"><span class="h1-he">דירות נופש</span> <bdi class="h1-en" dir="ltr">Red</bdi></span>
