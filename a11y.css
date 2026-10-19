@@ -1,0 +1,11 @@
+/* Accessibility helpers shared by all sites (IS 5568 / WCAG 2.1 AA), 19.10.2026 */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.skip-link{position:fixed;top:0;inset-inline-start:12px;z-index:10000;transform:translateY(-120%);background:#2c241c;color:#fff!important;padding:10px 18px;font-size:16px;line-height:1.4;text-decoration:none;border-radius:0 0 6px 6px}
+.skip-link:focus{transform:none;outline:2px solid #fff;outline-offset:-5px}
+main:focus,[tabindex="-1"]:focus{outline:none}
+.footer-legal{margin:14px 0 0!important;font-size:14px;line-height:2}
+.footer-legal a{color:inherit;text-decoration:none!important;border-bottom:1px solid currentColor!important;padding-bottom:1px}
+@media (max-width:760px){footer{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 84px)!important}}
+/* Larger invisible tap area for small standalone links (WCAG 2.5.8), no visual change */
+.top nav a,.managed-by a,.topnav .brand,.foot-phone,.foot-links a,footer p a{position:relative}
+.top nav a::before,.managed-by a::before,.topnav .brand::before,.foot-phone::before,.foot-links a::before,footer p a::before{content:"";position:absolute;inset:-7px -2px}
