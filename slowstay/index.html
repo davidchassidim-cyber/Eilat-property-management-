@@ -630,6 +630,28 @@ html body .quick-grid small { opacity: 1; color: #696761; }
 html body .night-section .evening-grid span, html body .evening-grid span { color: #794432; }
 html body .night-section .evening-grid p, html body .evening-grid p { color: #575249; }
 </style>
+<!-- ANIM-DEMO START: gentle animations for slowstay (remove this block and the ANIM-DEMO script block to revert) -->
+<style id="anim-demo">
+.stay-shot{background-color:#d7ccba}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.topnav.anim-small{background:#eee7e0}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion: no-preference){
+html{scroll-behavior:smooth}
+.btn-book,.btn-wa,.primary-link,.topnav nav a,.wa-float,.logo-home a,.lb-nav,.lb-x,.footer-legal a{transition:translate .2s ease,scale .2s ease,box-shadow .22s ease,color .2s ease,border-color .2s ease,background-color .2s ease}
+.btn-book:hover,.btn-wa:hover,.primary-link:hover,.topnav nav a:hover,.wa-float:hover,.logo-home a:hover,.lb-nav:hover,.lb-x:hover,.footer-legal a:hover,.btn-book:focus-visible,.btn-wa:focus-visible,.primary-link:focus-visible,.topnav nav a:focus-visible,.wa-float:focus-visible,.logo-home a:focus-visible,.lb-nav:focus-visible,.lb-x:focus-visible,.footer-legal a:focus-visible{translate:0 -2px}
+.btn-book:hover,.btn-wa:hover,.wa-float:hover,.lb-nav:hover,.lb-x:hover,.btn-book:focus-visible,.btn-wa:focus-visible,.wa-float:focus-visible,.lb-nav:focus-visible,.lb-x:focus-visible{box-shadow:0 6px 16px rgba(40,24,16,.14)}
+.btn-book:active,.btn-wa:active,.primary-link:active,.topnav nav a:active,.wa-float:active,.logo-home a:active,.lb-nav:active,.lb-x:active,.footer-legal a:active{translate:0 0;scale:.98;box-shadow:none;transition-duration:.12s}
+.stay-shot img{transition:scale .5s ease}.stay-shot:hover img,.stay-shot:focus-visible img{scale:1.04}
+.topnav{transition:min-height .25s ease,padding .25s ease,background-color .25s ease,box-shadow .25s ease}
+.topnav.anim-small{background:rgba(238,231,224,.84);-webkit-backdrop-filter:blur(12px) saturate(1.1);backdrop-filter:blur(12px) saturate(1.1);box-shadow:0 2px 12px rgba(40,24,16,.06)}
+.topnav.anim-small{min-height:48px;padding-top:4px;padding-bottom:4px}
+.js-anim .anim-pre{opacity:0;translate:0 10px}
+.js-anim .anim-in{opacity:1;translate:none;transition:opacity .5s ease,translate .5s ease}
+@keyframes anim-fab-pulse{0%{box-shadow:0 0 0 0 rgba(139,78,57,.28)}100%{box-shadow:0 0 0 14px rgba(139,78,57,0)}}
+.wa-float.anim-pulse{animation:anim-fab-pulse 1.6s ease-out 1}
+}
+</style>
+<!-- ANIM-DEMO END (styles) -->
 </head>
 <body>
 <a class="skip-link" href="#main">דלג לתוכן הראשי</a>
@@ -770,8 +792,7 @@ html body .night-section .evening-grid p, html body .evening-grid p { color: #57
 <div>
 <p>קחו את הזמן.<br>העולם יכול לחכות.</p>
 <small lang="en">THE WORLD CAN WAIT</small>
-<p class="from-house">מקבוצת <a href="../guests-preview/">בית באילת</a></p>
-<p class="managed-by">מנוהל על ידי <a href="../">ד. חסידים – ניהול נופש ושנתי באילת</a></p>
+<p class="from-house"><a href="https://davidchassidim-cyber.github.io/Eilat-property-management-/guests-preview/">מקבוצת בית באילת</a></p>
 <a class="foot-phone" href="tel:+972544293989">054-4293989</a>
 <p class="footer-legal"><a href="../accessibility/">הצהרת נגישות</a><span aria-hidden="true"> · </span><a href="../terms/">תקנון</a><span aria-hidden="true"> · </span><a href="../privacy/">מדיניות פרטיות</a></p>
 </div>
@@ -937,5 +958,21 @@ html body .night-section .evening-grid p, html body .evening-grid p { color: #57
 })();
 
 </script>
+<!-- ANIM-DEMO START (script) -->
+<script id="anim-demo-js">
+(function(){
+if(!window.matchMedia||matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+document.documentElement.classList.add('js-anim');
+var els=[].slice.call(document.querySelectorAll('.stay,.review,.place-card,.beach-group,.section-heading'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var c=e.target;io.unobserve(c);requestAnimationFrame(function(){c.classList.add('anim-in');c.classList.remove('anim-pre');});}});},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(c){if(c.parentElement&&c.parentElement.closest('.anim-pre'))return;var r=c.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)return;c.classList.add('anim-pre');io.observe(c);});
+setTimeout(function(){els.forEach(function(c){if(c.classList.contains('anim-pre')){c.classList.remove('anim-pre');c.classList.add('anim-in');}});},48000);
+var top=document.querySelector('.topnav');
+if(top){var small=false,tick=false;function hs(){tick=false;var y=scrollY;if(!small&&y>80){small=true;top.classList.add('anim-small')}else if(small&&y<20){small=false;top.classList.remove('anim-small')}}addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(hs)}},{passive:true});hs();}
+var fab=document.querySelector('.wa-float');
+if(fab)setTimeout(function(){fab.classList.add('anim-pulse');fab.addEventListener('animationend',function(){fab.classList.remove('anim-pulse');},{once:true});},4000);
+})();
+</script>
+<!-- ANIM-DEMO END (script) -->
 </body>
 </html>
