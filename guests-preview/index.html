@@ -295,6 +295,25 @@ header.top.anim-small .logo img{height:42px}
 @media (prefers-reduced-motion: no-preference){.lb-stage img.lb-ease{transition:transform .25s ease}}
 </style>
 <!-- ANIM-LB END (styles) -->
+<!-- SUN-RAYS START: gentle rays around the sun in the hero logo (remove this block and the span.sun-wrap/svg.sun-rays to revert) -->
+<style id="sun-rays">
+.sun-wrap{position:relative;display:block;width:min(400px,76vw);margin:0 auto}
+.sun-wrap .hero-logo{width:100%}
+.sun-rays{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.sun-rays .ray{stroke:#bd4200;stroke-linecap:round;fill:none}
+.sun-rays .ray-a{stroke-width:5;opacity:.5}
+.sun-rays .ray-b{stroke-width:4;opacity:.32}
+.sun-spin{transform-box:view-box;transform-origin:839px 520px}
+@media (prefers-reduced-motion: no-preference){
+.sun-spin{animation:sun-turn 90s linear infinite}
+.sun-rays .ray-a{animation:sun-glow 6s ease-in-out infinite}
+.sun-rays .ray-b{animation:sun-glow-b 6s ease-in-out infinite}
+@keyframes sun-turn{to{transform:rotate(360deg)}}
+@keyframes sun-glow{0%,100%{opacity:.22}50%{opacity:.62}}
+@keyframes sun-glow-b{0%,100%{opacity:.5}50%{opacity:.16}}
+}
+</style>
+<!-- SUN-RAYS END -->
 </head>
 <body>
 <a class="skip-link" href="#main">דלג לתוכן הראשי</a>
@@ -302,7 +321,7 @@ header.top.anim-small .logo img{height:42px}
 <nav><a class="hide" href="#apts">הדירות</a><a class="hide" href="#why">למה אצלנו</a><a class="hide" href="#faq">שאלות</a><a href="tel:0544293989">054-4293989</a></nav></div></header>
 <main id="main" tabindex="-1">
 <div class="hero" id="top"><div class="wrap">
-<picture><source srcset="img/logo.webp?v=3" type="image/webp"><img class="hero-logo" src="img/logo.png?v=3" width="1200" height="1276" alt="בית באילת — הנוחות של הבית, הקסם של אילת"></picture>
+<span class="sun-wrap"><picture><source srcset="img/logo.webp?v=3" type="image/webp"><img class="hero-logo" src="img/logo.png?v=3" width="1200" height="1276" alt="בית באילת — הנוחות של הבית, הקסם של אילת"></picture><svg class="sun-rays" viewBox="0 0 1200 1276" aria-hidden="true" focusable="false"><defs><clipPath id="sun-sky"><rect x="700" y="380" width="252" height="171"/></clipPath></defs><g clip-path="url(#sun-sky)"><g class="sun-spin"><line class="ray ray-a" x1="905.0" y1="520.0" x2="934.0" y2="520.0"/><line class="ray ray-a" x1="896.2" y1="553.0" x2="921.3" y2="567.5"/><line class="ray ray-a" x1="872.0" y1="577.2" x2="886.5" y2="602.3"/><line class="ray ray-a" x1="839.0" y1="586.0" x2="839.0" y2="615.0"/><line class="ray ray-a" x1="806.0" y1="577.2" x2="791.5" y2="602.3"/><line class="ray ray-a" x1="781.8" y1="553.0" x2="756.7" y2="567.5"/><line class="ray ray-a" x1="773.0" y1="520.0" x2="744.0" y2="520.0"/><line class="ray ray-a" x1="781.8" y1="487.0" x2="756.7" y2="472.5"/><line class="ray ray-a" x1="806.0" y1="462.8" x2="791.5" y2="437.7"/><line class="ray ray-a" x1="839.0" y1="454.0" x2="839.0" y2="425.0"/><line class="ray ray-a" x1="872.0" y1="462.8" x2="886.5" y2="437.7"/><line class="ray ray-a" x1="896.2" y1="487.0" x2="921.3" y2="472.5"/><line class="ray ray-b" x1="902.8" y1="537.1" x2="917.2" y2="541.0"/><line class="ray ray-b" x1="885.7" y1="566.7" x2="896.3" y2="577.3"/><line class="ray ray-b" x1="856.1" y1="583.8" x2="860.0" y2="598.2"/><line class="ray ray-b" x1="821.9" y1="583.8" x2="818.0" y2="598.2"/><line class="ray ray-b" x1="792.3" y1="566.7" x2="781.7" y2="577.3"/><line class="ray ray-b" x1="775.2" y1="537.1" x2="760.8" y2="541.0"/><line class="ray ray-b" x1="775.2" y1="502.9" x2="760.8" y2="499.0"/><line class="ray ray-b" x1="792.3" y1="473.3" x2="781.7" y2="462.7"/><line class="ray ray-b" x1="821.9" y1="456.2" x2="818.0" y2="441.8"/><line class="ray ray-b" x1="856.1" y1="456.2" x2="860.0" y2="441.8"/><line class="ray ray-b" x1="885.7" y1="473.3" x2="896.3" y2="462.7"/><line class="ray ray-b" x1="902.8" y1="502.9" x2="917.2" y2="499.0"/></g></g></svg></span>
 <h1>החופשה שלכם באילת מתחילה כאן</h1>
 <p class="lead">מגוון דירות נופש מטופחות באילת: ליד החוף, עם בריכה, למשפחות, לזוגות ולקבוצות. אותו מארח, אותו יחס – בכל דירה.</p>
 <p class="hero-links"><a class="textlink" href="#apts">לבחירת דירה</a><a class="textlink" href="https://wa.me/972544293989" target="_blank" rel="noopener">שאלה בוואטסאפ<span class="sr-only"> (נפתח בחלון חדש)</span></a></p>
